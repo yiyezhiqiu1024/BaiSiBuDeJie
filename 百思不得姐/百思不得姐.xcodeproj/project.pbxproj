@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92F5F9F81E84134600078085 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5F9F71E84134600078085 /* SLTabBarController.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
 		92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD94371E84027D00AFA363 /* Assets.xcassets */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92F5F9F61E84134600078085 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
+		92F5F9F71E84134600078085 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD942C1E84027D00AFA363 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92FD942E1E84027D00AFA363 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 			children = (
 				92FD942E1E84027D00AFA363 /* AppDelegate.h */,
 				92FD942F1E84027D00AFA363 /* AppDelegate.m */,
+				92F5F9F61E84134600078085 /* SLTabBarController.h */,
+				92F5F9F71E84134600078085 /* SLTabBarController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
+				92F5F9F81E84134600078085 /* SLTabBarController.m in Sources */,
 				92FD942D1E84027D00AFA363 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
