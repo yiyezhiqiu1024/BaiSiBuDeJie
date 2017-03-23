@@ -22,6 +22,8 @@
 #define myLog(...)
 #endif
 
+#define myLogFunc myLog(@"%s", __func__);
+
 /*** 颜色 ***/
 #define SLColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
 #define SLColor(r, g, b) SLColorA((r), (g), (b), 255)
