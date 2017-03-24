@@ -16,6 +16,7 @@
 #ifdef __OBJC__
 
 #import "UIView+SLExtension.h"
+#import "UIBarButtonItem+SLExtension.h"
 
 /*** 日志 ***/
 #ifdef DEBUG

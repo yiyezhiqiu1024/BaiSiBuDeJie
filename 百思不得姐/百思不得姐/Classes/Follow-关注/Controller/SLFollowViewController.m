@@ -7,6 +7,8 @@
 //
 
 #import "SLFollowViewController.h"
+#import "SLRecommendFollowViewController.h"
+
 
 @interface SLFollowViewController ()
 
@@ -23,18 +25,18 @@
     // 标题
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     // 左边
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"MainTagSubIcon"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"MainTagSubIconClick"] forState:UIControlStateHighlighted];
-    [button addTarget:self action:@selector(tagClick) forControlEvents:UIControlEventTouchUpInside];
-    [button sizeToFit];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem sl_itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(followClick)];
 }
 
 #pragma mark - 监听
-- (void)tagClick
+- (void)followClick
 {
     SLLogFunc
+    
+    SLRecommendFollowViewController *test = [[SLRecommendFollowViewController alloc] init];
+    test.view.backgroundColor = SLRandomColor;
+    test.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:test animated:YES];
 }
 
 

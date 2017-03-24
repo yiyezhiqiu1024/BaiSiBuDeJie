@@ -15,6 +15,10 @@
 		924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128531E84F37B00C5D419 /* SLMeViewController.m */; };
 		924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128561E84F3E200C5D419 /* SLNewViewController.m */; };
 		9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241285A1E84F4D400C5D419 /* SLTabBar.m */; };
+		92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8521E850247001E6159 /* UIBarButtonItem+SLExtension.m */; };
+		92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8551E8502B3001E6159 /* SLBaseViewController.m */; };
+		92AEA8591E850360001E6159 /* SLRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8581E850360001E6159 /* SLRecommendFollowViewController.m */; };
+		92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA85B1E8503F7001E6159 /* SLSettingViewController.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
 		92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD94371E84027D00AFA363 /* Assets.xcassets */; };
@@ -57,6 +61,14 @@
 		924128561E84F3E200C5D419 /* SLNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNewViewController.m; sourceTree = "<group>"; };
 		924128591E84F4D400C5D419 /* SLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBar.h; sourceTree = "<group>"; };
 		9241285A1E84F4D400C5D419 /* SLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBar.m; sourceTree = "<group>"; };
+		92AEA8511E850247001E6159 /* UIBarButtonItem+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SLExtension.h"; sourceTree = "<group>"; };
+		92AEA8521E850247001E6159 /* UIBarButtonItem+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SLExtension.m"; sourceTree = "<group>"; };
+		92AEA8541E8502B3001E6159 /* SLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBaseViewController.h; sourceTree = "<group>"; };
+		92AEA8551E8502B3001E6159 /* SLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBaseViewController.m; sourceTree = "<group>"; };
+		92AEA8571E850360001E6159 /* SLRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRecommendFollowViewController.h; sourceTree = "<group>"; };
+		92AEA8581E850360001E6159 /* SLRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRecommendFollowViewController.m; sourceTree = "<group>"; };
+		92AEA85A1E8503F7001E6159 /* SLSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSettingViewController.h; sourceTree = "<group>"; };
+		92AEA85B1E8503F7001E6159 /* SLSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSettingViewController.m; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD942C1E84027D00AFA363 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92FD942E1E84027D00AFA363 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -144,6 +156,8 @@
 			children = (
 				9241284F1E84F30400C5D419 /* SLFollowViewController.h */,
 				924128501E84F30400C5D419 /* SLFollowViewController.m */,
+				92AEA8571E850360001E6159 /* SLRecommendFollowViewController.h */,
+				92AEA8581E850360001E6159 /* SLRecommendFollowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,6 +191,8 @@
 			children = (
 				924128321E84E58300C5D419 /* SLTabBarController.h */,
 				924128331E84E58300C5D419 /* SLTabBarController.m */,
+				92AEA8541E8502B3001E6159 /* SLBaseViewController.h */,
+				92AEA8551E8502B3001E6159 /* SLBaseViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +259,8 @@
 			children = (
 				924128411E84E58300C5D419 /* UIView+SLExtension.h */,
 				924128421E84E58300C5D419 /* UIView+SLExtension.m */,
+				92AEA8511E850247001E6159 /* UIBarButtonItem+SLExtension.h */,
+				92AEA8521E850247001E6159 /* UIBarButtonItem+SLExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -262,6 +280,8 @@
 			children = (
 				924128521E84F37B00C5D419 /* SLMeViewController.h */,
 				924128531E84F37B00C5D419 /* SLMeViewController.m */,
+				92AEA85A1E8503F7001E6159 /* SLSettingViewController.h */,
+				92AEA85B1E8503F7001E6159 /* SLSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -492,12 +512,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */,
 				924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */,
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
 				924128441E84E58300C5D419 /* SLTabBarController.m in Sources */,
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
 				924128511E84F30400C5D419 /* SLFollowViewController.m in Sources */,
+				92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */,
+				92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */,
 				9241284E1E84F2A700C5D419 /* SLEssenceViewController.m in Sources */,
+				92AEA8591E850360001E6159 /* SLRecommendFollowViewController.m in Sources */,
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */,
