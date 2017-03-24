@@ -17,12 +17,12 @@
 
 /*** 日志 ***/
 #ifdef DEBUG
-#define myLog(...) NSLog(__VA_ARGS__)
+#define SLLog(...) NSLog(__VA_ARGS__)
 #else
-#define myLog(...)
+#define SLLog(...)
 #endif
 
-#define myLogFunc myLog(@"%s", __func__);
+#define SLLogFunc SLLog(@"%s", __func__);
 
 /*** 颜色 ***/
 #define SLColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
