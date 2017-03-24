@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		924128241E84DC6D00C5D419 /* SLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128231E84DC6D00C5D419 /* SLTabBar.m */; };
+		924128271E84DF8E00C5D419 /* UIView+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128261E84DF8E00C5D419 /* UIView+SLExtension.m */; };
 		92F5F9F81E84134600078085 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5F9F71E84134600078085 /* SLTabBarController.m */; };
 		92F5F9FC1E84188100078085 /* SLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F5F9FB1E84188100078085 /* SLTestViewController.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		924128221E84DC6D00C5D419 /* SLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBar.h; sourceTree = "<group>"; };
 		924128231E84DC6D00C5D419 /* SLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBar.m; sourceTree = "<group>"; };
+		924128251E84DF8E00C5D419 /* UIView+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SLExtension.h"; sourceTree = "<group>"; };
+		924128261E84DF8E00C5D419 /* UIView+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SLExtension.m"; sourceTree = "<group>"; };
 		92F5F9F61E84134600078085 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
 		92F5F9F71E84134600078085 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		92F5F9F91E84149500078085 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				92F5F9FA1E84188100078085 /* SLTestViewController.h */,
 				92F5F9FB1E84188100078085 /* SLTestViewController.m */,
 				92F5F9F91E84149500078085 /* PrefixHeader.pch */,
+				924128251E84DF8E00C5D419 /* UIView+SLExtension.h */,
+				924128261E84DF8E00C5D419 /* UIView+SLExtension.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
 				92F5F9F81E84134600078085 /* SLTabBarController.m in Sources */,
 				92FD942D1E84027D00AFA363 /* main.m in Sources */,
+				924128271E84DF8E00C5D419 /* UIView+SLExtension.m in Sources */,
 				924128241E84DC6D00C5D419 /* SLTabBar.m in Sources */,
 				92F5F9FC1E84188100078085 /* SLTestViewController.m in Sources */,
 			);

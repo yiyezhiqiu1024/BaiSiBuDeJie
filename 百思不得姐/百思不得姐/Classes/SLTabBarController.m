@@ -14,32 +14,39 @@
 
 @implementation SLTabBarController
 
-#pragma mark - 初始化
+#pragma mark - 系统回调
 - (void)viewDidLoad {
     [super viewDidLoad];
     /**** 设置所有UITabBarItem的文字属性 ****/
-    UITabBarItem *item = [UITabBarItem appearance];
-    // 普通状态下的文字属性
-    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
-    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:14];
-    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
-    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
-    // 选中状态下的文字属性
-    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
-    [item setTitleTextAttributes:normalAttrs forState:UIControlStateSelected];
+    [self setupItemTitleTextAttributes];
     
     /**** 添加子控制器 ****/
+    [self setupChildViewControllers];
+    
+    /**** 更换TabBar ****/
+    [self setupTabBar];
+}
+
+
+#pragma mark - 设置UI
+/**
+ *  更换TabBar
+ */
+- (void)setupTabBar
+{
+    [self setValue:[[SLTabBar alloc] init] forKeyPath:@"tabBar"];
+}
+
+/**
+ *  添加子控制器
+ */
+- (void)setupChildViewControllers
+{
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     
     [self setupOneChildViewController:[[UIViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     [self setupOneChildViewController:[[UITableViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
-    
-    /**** 更换TabBar ****/
-    //    self.tabBar = [[XMGTabBar alloc] init];
-    [self setValue:[[SLTabBar alloc] init] forKeyPath:@"tabBar"];
-
 }
 
 /**
@@ -60,5 +67,24 @@
     }
     [self addChildViewController:vc];
 }
+
+/**
+ *  设置所有UITabBarItem的文字属性
+ */
+- (void)setupItemTitleTextAttributes
+{
+    UITabBarItem *item = [UITabBarItem appearance];
+    // 普通状态下的文字属性
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    // 选中状态下的文字属性
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    [item setTitleTextAttributes:normalAttrs forState:UIControlStateSelected];
+}
+
+
 
 @end
