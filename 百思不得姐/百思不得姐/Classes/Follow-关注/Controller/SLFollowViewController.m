@@ -34,8 +34,6 @@
     SLLogFunc
     
     SLRecommendFollowViewController *test = [[SLRecommendFollowViewController alloc] init];
-    test.view.backgroundColor = SLRandomColor;
-    test.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:test animated:YES];
 }
 

@@ -6,8 +6,8 @@
 //  Copyright © 2017年 SLZeng. All rights reserved.
 //
 
-#import "SLBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface SLRecommendFollowViewController : SLBaseViewController
+@interface SLRecommendFollowViewController : UIViewController
 
 @end

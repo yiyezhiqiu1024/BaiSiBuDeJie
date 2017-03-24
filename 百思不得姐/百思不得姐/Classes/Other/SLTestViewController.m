@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = SLCommonBgColor;
     self.navigationItem.title = @"测试";
 }
 

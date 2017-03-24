@@ -1,5 +1,5 @@
 //
-//  SLSettingViewController.h
+//  SLNavigationController.h
 //  百思不得姐
 //
 //  Created by Anthony on 17/3/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLSettingViewController : UIViewController
+@interface SLNavigationController : UINavigationController
 
 @end

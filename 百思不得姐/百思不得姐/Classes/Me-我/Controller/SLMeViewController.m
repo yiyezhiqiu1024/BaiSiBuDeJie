@@ -49,8 +49,6 @@
     SLLogFunc
     
     SLSettingViewController *vc = [[SLSettingViewController alloc] init];
-    vc.view.backgroundColor = SLRandomColor;
-    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

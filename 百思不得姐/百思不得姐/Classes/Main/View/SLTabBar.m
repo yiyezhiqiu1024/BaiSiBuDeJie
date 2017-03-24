@@ -31,6 +31,15 @@
     return _publishButton;
 }
 
+#pragma mark - 初始化
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundImage = [UIImage imageNamed:@"tabbar-light"];
+    }
+    return self;
+}
+
 #pragma mark - 布局
 /**
  *  布局子控件
