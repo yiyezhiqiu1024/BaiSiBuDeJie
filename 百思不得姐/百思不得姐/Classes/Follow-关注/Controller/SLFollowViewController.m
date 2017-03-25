@@ -8,6 +8,8 @@
 
 #import "SLFollowViewController.h"
 #import "SLRecommendFollowViewController.h"
+#import "SLLoginRegisterViewController.h"
+
 
 
 @interface SLFollowViewController ()
@@ -35,6 +37,11 @@
     
     SLRecommendFollowViewController *test = [[SLRecommendFollowViewController alloc] init];
     [self.navigationController pushViewController:test animated:YES];
+}
+
+- (IBAction)loginRegister {
+    SLLoginRegisterViewController *loginRegister = [[SLLoginRegisterViewController alloc] init];
+    [self presentViewController:loginRegister animated:YES completion:nil];
 }
 
 

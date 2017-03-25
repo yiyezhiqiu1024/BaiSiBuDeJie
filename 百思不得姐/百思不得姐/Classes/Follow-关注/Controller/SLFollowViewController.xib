@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SLFollowViewController">
+            <connections>
+                <outlet property="view" destination="zDm-Ov-VjW" id="u7C-oA-ei2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="zDm-Ov-VjW">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GF-hx-uDP" userLabel="中间的文字描述">
+                    <rect key="frame" x="264" y="270" width="73" height="61"/>
+                    <string key="text">Label655
+4365
+46546</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_cry_icon" translatesAutoresizingMaskIntoConstraints="NO" id="HcS-hz-O3Y" userLabel="顶部图标">
+                    <rect key="frame" x="276" y="182" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="XNw-tK-M0J"/>
+                        <constraint firstAttribute="height" constant="48" id="fo5-eD-Lsq"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="074-ed-YJw" userLabel="登录注册按钮">
+                    <rect key="frame" x="179" y="371" width="243" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="vQd-qq-MsM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="立即登录注册" backgroundImage="friendsTrend_login">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="friendsTrend_login_click">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginRegister" destination="-1" eventType="touchUpInside" id="p7v-uD-TrL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4GF-hx-uDP" firstAttribute="centerY" secondItem="zDm-Ov-VjW" secondAttribute="centerY" id="8ya-W4-4Mh"/>
+                <constraint firstItem="4GF-hx-uDP" firstAttribute="top" secondItem="HcS-hz-O3Y" secondAttribute="bottom" constant="40" id="ItA-Ue-WNz"/>
+                <constraint firstItem="074-ed-YJw" firstAttribute="centerX" secondItem="zDm-Ov-VjW" secondAttribute="centerX" id="Tkf-Sa-Sy0"/>
+                <constraint firstItem="HcS-hz-O3Y" firstAttribute="centerX" secondItem="zDm-Ov-VjW" secondAttribute="centerX" id="ZBk-vF-KqR"/>
+                <constraint firstItem="074-ed-YJw" firstAttribute="top" secondItem="4GF-hx-uDP" secondAttribute="bottom" constant="40" id="cd6-df-Vpf"/>
+                <constraint firstItem="4GF-hx-uDP" firstAttribute="centerX" secondItem="zDm-Ov-VjW" secondAttribute="centerX" id="ljJ-Qp-vId"/>
+            </constraints>
+            <point key="canvasLocation" x="425" y="376"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="friendsTrend_login" width="243" height="48"/>
+        <image name="friendsTrend_login_click" width="243" height="48"/>
+        <image name="header_cry_icon" width="48" height="48"/>
+    </resources>
+</document>

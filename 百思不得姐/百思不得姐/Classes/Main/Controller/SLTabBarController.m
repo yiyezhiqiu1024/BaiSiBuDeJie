@@ -47,14 +47,14 @@
  */
 - (void)setupChildViewControllers
 {
+    // 关注
+    [self setupOneChildViewController:[[SLNavigationController alloc] initWithRootViewController:[[SLFollowViewController alloc] init]] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
+    
     // 精华
     [self setupOneChildViewController:[[SLNavigationController alloc] initWithRootViewController:[[SLEssenceViewController alloc] init]] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
     
     // 新帖
     [self setupOneChildViewController:[[SLNavigationController alloc] initWithRootViewController:[[SLNewViewController alloc] init]] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
-    
-    // 关注
-    [self setupOneChildViewController:[[SLNavigationController alloc] initWithRootViewController:[[SLFollowViewController alloc] init]] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
     // 我
     [self setupOneChildViewController:[[SLNavigationController alloc] initWithRootViewController:[[SLMeViewController alloc] init]] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];

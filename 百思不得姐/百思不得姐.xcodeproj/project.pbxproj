@@ -15,6 +15,10 @@
 		924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128531E84F37B00C5D419 /* SLMeViewController.m */; };
 		924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128561E84F3E200C5D419 /* SLNewViewController.m */; };
 		9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241285A1E84F4D400C5D419 /* SLTabBar.m */; };
+		929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929A35101E865D87004CCA98 /* SLFollowViewController.xib */; };
+		929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */; };
+		929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929A35141E865E17004CCA98 /* SLLoginRegisterViewController.xib */; };
+		929A35191E866179004CCA98 /* SLQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A35181E866179004CCA98 /* SLQuickLoginButton.m */; };
 		92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8521E850247001E6159 /* UIBarButtonItem+SLExtension.m */; };
 		92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8551E8502B3001E6159 /* SLBaseViewController.m */; };
 		92AEA8591E850360001E6159 /* SLRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8581E850360001E6159 /* SLRecommendFollowViewController.m */; };
@@ -62,6 +66,12 @@
 		924128561E84F3E200C5D419 /* SLNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNewViewController.m; sourceTree = "<group>"; };
 		924128591E84F4D400C5D419 /* SLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBar.h; sourceTree = "<group>"; };
 		9241285A1E84F4D400C5D419 /* SLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBar.m; sourceTree = "<group>"; };
+		929A35101E865D87004CCA98 /* SLFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLFollowViewController.xib; sourceTree = "<group>"; };
+		929A35121E865E17004CCA98 /* SLLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginRegisterViewController.h; sourceTree = "<group>"; };
+		929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginRegisterViewController.m; sourceTree = "<group>"; };
+		929A35141E865E17004CCA98 /* SLLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		929A35171E866179004CCA98 /* SLQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLQuickLoginButton.h; sourceTree = "<group>"; };
+		929A35181E866179004CCA98 /* SLQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLQuickLoginButton.m; sourceTree = "<group>"; };
 		92AEA8511E850247001E6159 /* UIBarButtonItem+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SLExtension.h"; sourceTree = "<group>"; };
 		92AEA8521E850247001E6159 /* UIBarButtonItem+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SLExtension.m"; sourceTree = "<group>"; };
 		92AEA8541E8502B3001E6159 /* SLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBaseViewController.h; sourceTree = "<group>"; };
@@ -159,6 +169,7 @@
 			children = (
 				9241284F1E84F30400C5D419 /* SLFollowViewController.h */,
 				924128501E84F30400C5D419 /* SLFollowViewController.m */,
+				929A35101E865D87004CCA98 /* SLFollowViewController.xib */,
 				92AEA8571E850360001E6159 /* SLRecommendFollowViewController.h */,
 				92AEA8581E850360001E6159 /* SLRecommendFollowViewController.m */,
 			);
@@ -198,6 +209,9 @@
 				92AEA8551E8502B3001E6159 /* SLBaseViewController.m */,
 				92AEA85D1E850567001E6159 /* SLNavigationController.h */,
 				92AEA85E1E850567001E6159 /* SLNavigationController.m */,
+				929A35121E865E17004CCA98 /* SLLoginRegisterViewController.h */,
+				929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */,
+				929A35141E865E17004CCA98 /* SLLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,6 +324,8 @@
 			children = (
 				924128591E84F4D400C5D419 /* SLTabBar.h */,
 				9241285A1E84F4D400C5D419 /* SLTabBar.m */,
+				929A35171E866179004CCA98 /* SLQuickLoginButton.h */,
+				929A35181E866179004CCA98 /* SLQuickLoginButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +508,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */,
+				929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */,
 				92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +540,9 @@
 				924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */,
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
 				924128441E84E58300C5D419 /* SLTabBarController.m in Sources */,
+				929A35191E866179004CCA98 /* SLQuickLoginButton.m in Sources */,
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
+				929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */,
 				924128511E84F30400C5D419 /* SLFollowViewController.m in Sources */,
 				92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */,
 				92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */,
