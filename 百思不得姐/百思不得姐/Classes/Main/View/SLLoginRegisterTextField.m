@@ -11,6 +11,10 @@
 
 static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
 
+@interface SLLoginRegisterTextField() <UITextFieldDelegate>
+
+@end
+
 @implementation SLLoginRegisterTextField
 
 - (void)awakeFromNib
@@ -19,6 +23,19 @@ static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
     self.tintColor = [UIColor whiteColor];
     // 设置占位文字颜色
    [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
+    
+    self.delegate = self;
+}
+
+#pragma mark - <UITextFieldDelegate>
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self setValue:[UIColor whiteColor] forKeyPath:SLPlaceholderColorKey];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
 }
 
 @end
