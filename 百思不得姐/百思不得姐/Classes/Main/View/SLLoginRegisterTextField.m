@@ -7,6 +7,9 @@
 //
 
 #import "SLLoginRegisterTextField.h"
+#import <objc/runtime.h>
+
+static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
 
 @implementation SLLoginRegisterTextField
 
@@ -15,9 +18,7 @@
     // 设置光标颜色
     self.tintColor = [UIColor whiteColor];
     // 设置占位文字颜色
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    attributes[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:attributes];
+   [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
 }
 
 @end
