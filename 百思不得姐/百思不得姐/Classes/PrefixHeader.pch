@@ -17,6 +17,7 @@
 
 #import "UIView+SLExtension.h"
 #import "UIBarButtonItem+SLExtension.h"
+#import "UITextField+SLExtension.h"
 
 /*** 日志 ***/
 #ifdef DEBUG

@@ -15,6 +15,7 @@
 		924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128531E84F37B00C5D419 /* SLMeViewController.m */; };
 		924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128561E84F3E200C5D419 /* SLNewViewController.m */; };
 		9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241285A1E84F4D400C5D419 /* SLTabBar.m */; };
+		924CA9411E88FA17006DACBA /* UITextField+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */; };
 		929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929A35101E865D87004CCA98 /* SLFollowViewController.xib */; };
 		929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */; };
 		929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929A35141E865E17004CCA98 /* SLLoginRegisterViewController.xib */; };
@@ -67,6 +68,8 @@
 		924128561E84F3E200C5D419 /* SLNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNewViewController.m; sourceTree = "<group>"; };
 		924128591E84F4D400C5D419 /* SLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBar.h; sourceTree = "<group>"; };
 		9241285A1E84F4D400C5D419 /* SLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBar.m; sourceTree = "<group>"; };
+		924CA93F1E88FA17006DACBA /* UITextField+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SLExtension.h"; sourceTree = "<group>"; };
+		924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SLExtension.m"; sourceTree = "<group>"; };
 		929A35101E865D87004CCA98 /* SLFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLFollowViewController.xib; sourceTree = "<group>"; };
 		929A35121E865E17004CCA98 /* SLLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginRegisterViewController.h; sourceTree = "<group>"; };
 		929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginRegisterViewController.m; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 		924128401E84E58300C5D419 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				924CA93F1E88FA17006DACBA /* UITextField+SLExtension.h */,
+				924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */,
 				924128411E84E58300C5D419 /* UIView+SLExtension.h */,
 				924128421E84E58300C5D419 /* UIView+SLExtension.m */,
 				92AEA8511E850247001E6159 /* UIBarButtonItem+SLExtension.h */,
@@ -556,6 +561,7 @@
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
+				924CA9411E88FA17006DACBA /* UITextField+SLExtension.m in Sources */,
 				9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */,
 				92FD942D1E84027D00AFA363 /* main.m in Sources */,
 			);
