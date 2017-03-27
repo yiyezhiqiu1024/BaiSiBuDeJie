@@ -7,7 +7,6 @@
 //
 
 #import "SLLoginRegisterTextField.h"
-#import <objc/runtime.h>
 
 static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
 
@@ -22,27 +21,32 @@ static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
 {
     // 设置光标颜色
     self.tintColor = [UIColor whiteColor];
-    // 设置占位文字颜色
+    // 设置默认的占位文字颜色
     [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginEditing) name:UITextFieldTextDidBeginEditingNotification object:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditing) name:UITextFieldTextDidEndEditingNotification object:self];
-}
-
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    // 成为第一响应者 : 开始编辑\弹出键盘\获得焦点
+    //    [self becomeFirstResponder];
+    // 不做第一响应者 : 结束编辑\退出键盘\失去焦点
+    //    [self resignFirstResponder];
 }
 
 #pragma mark - 监听
-- (void)beginEditing
+/**
+ *  调用时刻 : 成为第一响应者(开始编辑\弹出键盘\获得焦点)
+ */
+- (BOOL)becomeFirstResponder
 {
     [self setValue:[UIColor whiteColor] forKeyPath:SLPlaceholderColorKey];
+    return [super becomeFirstResponder];
 }
 
-- (void)endEditing
+/**
+ *  调用时刻 : 不做第一响应者(结束编辑\退出键盘\失去焦点)
+ */
+- (BOOL)resignFirstResponder
 {
     [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
+    return [super resignFirstResponder];
 }
 
 @end
