@@ -31,6 +31,7 @@
 		92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A461E8BF7B600D6368A /* GlobalConst.m */; };
 		92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */; };
 		92AF3A4D1E8BF81E00D6368A /* SLMeSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */; };
+		92AF3A581E8BFB7D00D6368A /* SLMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A571E8BFB7D00D6368A /* SLMeSquareButton.m */; };
 		92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8EA51E87AE3100A2B585 /* SLLoginRegisterTextField.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
@@ -104,6 +105,8 @@
 		92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeFooterView.m; sourceTree = "<group>"; };
 		92AF3A4B1E8BF81E00D6368A /* SLMeSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMeSquare.h; sourceTree = "<group>"; };
 		92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeSquare.m; sourceTree = "<group>"; };
+		92AF3A561E8BFB7D00D6368A /* SLMeSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMeSquareButton.h; sourceTree = "<group>"; };
+		92AF3A571E8BFB7D00D6368A /* SLMeSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeSquareButton.m; sourceTree = "<group>"; };
 		92EB8EA41E87AE3100A2B585 /* SLLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginRegisterTextField.h; sourceTree = "<group>"; };
 		92EB8EA51E87AE3100A2B585 /* SLLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginRegisterTextField.m; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,6 +359,8 @@
 				92AF3A431E8BF78B00D6368A /* SLMeCell.m */,
 				92AF3A481E8BF7E500D6368A /* SLMeFooterView.h */,
 				92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */,
+				92AF3A561E8BFB7D00D6368A /* SLMeSquareButton.h */,
+				92AF3A571E8BFB7D00D6368A /* SLMeSquareButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
+				92AF3A581E8BFB7D00D6368A /* SLMeSquareButton.m in Sources */,
 				924CA9411E88FA17006DACBA /* UITextField+SLExtension.m in Sources */,
 				9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */,
 				92AF3A441E8BF78B00D6368A /* SLMeCell.m in Sources */,
