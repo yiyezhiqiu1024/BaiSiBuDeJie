@@ -32,6 +32,8 @@
 		92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */; };
 		92AF3A4D1E8BF81E00D6368A /* SLMeSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */; };
 		92AF3A581E8BFB7D00D6368A /* SLMeSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A571E8BFB7D00D6368A /* SLMeSquareButton.m */; };
+		92AF3A5C1E8BFC0500D6368A /* SLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A5A1E8BFC0500D6368A /* SLWebViewController.m */; };
+		92AF3A5D1E8BFC0500D6368A /* SLWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AF3A5B1E8BFC0500D6368A /* SLWebViewController.xib */; };
 		92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8EA51E87AE3100A2B585 /* SLLoginRegisterTextField.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
@@ -107,6 +109,9 @@
 		92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeSquare.m; sourceTree = "<group>"; };
 		92AF3A561E8BFB7D00D6368A /* SLMeSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMeSquareButton.h; sourceTree = "<group>"; };
 		92AF3A571E8BFB7D00D6368A /* SLMeSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeSquareButton.m; sourceTree = "<group>"; };
+		92AF3A591E8BFC0500D6368A /* SLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLWebViewController.h; sourceTree = "<group>"; };
+		92AF3A5A1E8BFC0500D6368A /* SLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLWebViewController.m; sourceTree = "<group>"; };
+		92AF3A5B1E8BFC0500D6368A /* SLWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLWebViewController.xib; sourceTree = "<group>"; };
 		92EB8EA41E87AE3100A2B585 /* SLLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginRegisterTextField.h; sourceTree = "<group>"; };
 		92EB8EA51E87AE3100A2B585 /* SLLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginRegisterTextField.m; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +344,9 @@
 				924128531E84F37B00C5D419 /* SLMeViewController.m */,
 				92AEA85A1E8503F7001E6159 /* SLSettingViewController.h */,
 				92AEA85B1E8503F7001E6159 /* SLSettingViewController.m */,
+				92AF3A591E8BFC0500D6368A /* SLWebViewController.h */,
+				92AF3A5A1E8BFC0500D6368A /* SLWebViewController.m */,
+				92AF3A5B1E8BFC0500D6368A /* SLWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -591,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AF3A5D1E8BFC0500D6368A /* SLWebViewController.xib in Resources */,
 				929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */,
 				929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */,
 				92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */,
@@ -742,6 +751,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */,
+				92AF3A5C1E8BFC0500D6368A /* SLWebViewController.m in Sources */,
 				92AEA85F1E850567001E6159 /* SLNavigationController.m in Sources */,
 				924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */,
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
