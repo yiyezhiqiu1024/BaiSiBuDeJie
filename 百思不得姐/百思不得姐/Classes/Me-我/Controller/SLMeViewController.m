@@ -38,6 +38,11 @@
     UIBarButtonItem *moonItem = [[UIBarButtonItem alloc] initWithCustomView:moonButton];
     
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
+    
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 10;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
 }
 
 #pragma mark - 监听
@@ -59,6 +64,46 @@
 - (void)moonClick
 {
     SLLogFunc
+}
+
+#pragma mark - 数据源方法
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 1.确定重用标示:
+    static NSString *ID = @"MeCell";
+    // 2.从缓存池中取
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    // 3.如果空就手动创建
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.section];
+    
+    return cell;
+}
+
+#pragma mark - 代理方法
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2) return 200;
+    return 44;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    SLLog(@"%@", NSStringFromCGRect(cell.frame));
 }
 
 @end
