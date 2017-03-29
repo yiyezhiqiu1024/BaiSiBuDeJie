@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B60FF5BE6052B8DEA8C1AB0 /* libPods-百思不得姐UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EEBDAB45C163A0FCBA239F /* libPods-百思不得姐UITests.a */; };
+		4D7E9DB03BEC1D10031C5CF8 /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57885D07A160A230047B670 /* libPods-百思不得姐.a */; };
 		924128441E84E58300C5D419 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128331E84E58300C5D419 /* SLTabBarController.m */; };
 		924128461E84E58300C5D419 /* SLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241283E1E84E58300C5D419 /* SLTestViewController.m */; };
 		924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128421E84E58300C5D419 /* UIView+SLExtension.m */; };
@@ -31,6 +33,7 @@
 		92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD94371E84027D00AFA363 /* Assets.xcassets */; };
 		92FD94461E84027D00AFA363 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD94451E84027D00AFA363 /* _____Tests.m */; };
 		92FD94511E84027D00AFA363 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD94501E84027D00AFA363 /* _____UITests.m */; };
+		C17BDF1E47B1ABFAF0577452 /* libPods-百思不得姐Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79745F7A405814BF24CC4A37 /* libPods-百思不得姐Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470EBC3E64F671DE9C983556 /* Pods-百思不得姐Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B27298F31A9ABA260E1C495 /* Pods-百思不得姐UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		79745F7A405814BF24CC4A37 /* libPods-百思不得姐Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		924128321E84E58300C5D419 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
 		924128331E84E58300C5D419 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		9241283D1E84E58300C5D419 /* SLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTestViewController.h; sourceTree = "<group>"; };
@@ -100,6 +106,12 @@
 		92FD944C1E84027D00AFA363 /* 百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD94501E84027D00AFA363 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		92FD94521E84027D00AFA363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A29852BFC1A35532DD7704A1 /* Pods-百思不得姐UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests.release.xcconfig"; sourceTree = "<group>"; };
+		A95F6E5E31BBFA5768EF81D8 /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
+		B6EEBDAB45C163A0FCBA239F /* libPods-百思不得姐UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C57885D07A160A230047B670 /* libPods-百思不得姐.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEA9A6F14972C864A8F9C33 /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
+		EF2DFF3C1A71356E3953C398 /* Pods-百思不得姐Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7E9DB03BEC1D10031C5CF8 /* libPods-百思不得姐.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C17BDF1E47B1ABFAF0577452 /* libPods-百思不得姐Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B60FF5BE6052B8DEA8C1AB0 /* libPods-百思不得姐UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +379,8 @@
 				92FD94441E84027D00AFA363 /* 百思不得姐Tests */,
 				92FD944F1E84027D00AFA363 /* 百思不得姐UITests */,
 				92FD94291E84027D00AFA363 /* Products */,
+				9CDED912098217FD49D6DF69 /* Pods */,
+				D536A03B276650FD339245DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +431,29 @@
 			path = "百思不得姐UITests";
 			sourceTree = "<group>";
 		};
+		9CDED912098217FD49D6DF69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A95F6E5E31BBFA5768EF81D8 /* Pods-百思不得姐.debug.xcconfig */,
+				DEEA9A6F14972C864A8F9C33 /* Pods-百思不得姐.release.xcconfig */,
+				470EBC3E64F671DE9C983556 /* Pods-百思不得姐Tests.debug.xcconfig */,
+				EF2DFF3C1A71356E3953C398 /* Pods-百思不得姐Tests.release.xcconfig */,
+				4B27298F31A9ABA260E1C495 /* Pods-百思不得姐UITests.debug.xcconfig */,
+				A29852BFC1A35532DD7704A1 /* Pods-百思不得姐UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D536A03B276650FD339245DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C57885D07A160A230047B670 /* libPods-百思不得姐.a */,
+				79745F7A405814BF24CC4A37 /* libPods-百思不得姐Tests.a */,
+				B6EEBDAB45C163A0FCBA239F /* libPods-百思不得姐UITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,9 +461,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92FD94551E84027D00AFA363 /* Build configuration list for PBXNativeTarget "百思不得姐" */;
 			buildPhases = (
+				D7C7EEA95F7A3D10ACA83053 /* [CP] Check Pods Manifest.lock */,
 				92FD94241E84027D00AFA363 /* Sources */,
 				92FD94251E84027D00AFA363 /* Frameworks */,
 				92FD94261E84027D00AFA363 /* Resources */,
+				CA6F8DCB9637DC930E84DCCA /* [CP] Embed Pods Frameworks */,
+				1DC14B5D734E08EB879B833F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,9 +481,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92FD94581E84027D00AFA363 /* Build configuration list for PBXNativeTarget "百思不得姐Tests" */;
 			buildPhases = (
+				5D80EE86C4A0AF7BE9314068 /* [CP] Check Pods Manifest.lock */,
 				92FD943D1E84027D00AFA363 /* Sources */,
 				92FD943E1E84027D00AFA363 /* Frameworks */,
 				92FD943F1E84027D00AFA363 /* Resources */,
+				DB59D9C4E953259472611888 /* [CP] Embed Pods Frameworks */,
+				ED85114EB07544999F6C3BDA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -456,9 +502,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92FD945B1E84027D00AFA363 /* Build configuration list for PBXNativeTarget "百思不得姐UITests" */;
 			buildPhases = (
+				E0EE57AE14E8AB67EA8525D8 /* [CP] Check Pods Manifest.lock */,
 				92FD94481E84027D00AFA363 /* Sources */,
 				92FD94491E84027D00AFA363 /* Frameworks */,
 				92FD944A1E84027D00AFA363 /* Resources */,
+				3F46A545C4EE1607263C8A58 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -539,6 +587,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DC14B5D734E08EB879B833F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F46A545C4EE1607263C8A58 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D80EE86C4A0AF7BE9314068 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CA6F8DCB9637DC930E84DCCA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7C7EEA95F7A3D10ACA83053 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DB59D9C4E953259472611888 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0EE57AE14E8AB67EA8525D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED85114EB07544999F6C3BDA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92FD94241E84027D00AFA363 /* Sources */ = {
@@ -685,6 +856,7 @@
 		};
 		92FD94561E84027D00AFA363 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95F6E5E31BBFA5768EF81D8 /* Pods-百思不得姐.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -699,6 +871,7 @@
 		};
 		92FD94571E84027D00AFA363 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEEA9A6F14972C864A8F9C33 /* Pods-百思不得姐.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -713,6 +886,7 @@
 		};
 		92FD94591E84027D00AFA363 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 470EBC3E64F671DE9C983556 /* Pods-百思不得姐Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "百思不得姐Tests/Info.plist";
@@ -725,6 +899,7 @@
 		};
 		92FD945A1E84027D00AFA363 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF2DFF3C1A71356E3953C398 /* Pods-百思不得姐Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "百思不得姐Tests/Info.plist";
@@ -737,6 +912,7 @@
 		};
 		92FD945C1E84027D00AFA363 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B27298F31A9ABA260E1C495 /* Pods-百思不得姐UITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "百思不得姐UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -748,6 +924,7 @@
 		};
 		92FD945D1E84027D00AFA363 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A29852BFC1A35532DD7704A1 /* Pods-百思不得姐UITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "百思不得姐UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
