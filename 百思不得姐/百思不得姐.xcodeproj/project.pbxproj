@@ -27,6 +27,10 @@
 		92AEA8591E850360001E6159 /* SLRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA8581E850360001E6159 /* SLRecommendFollowViewController.m */; };
 		92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA85B1E8503F7001E6159 /* SLSettingViewController.m */; };
 		92AEA85F1E850567001E6159 /* SLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEA85E1E850567001E6159 /* SLNavigationController.m */; };
+		92AF3A441E8BF78B00D6368A /* SLMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A431E8BF78B00D6368A /* SLMeCell.m */; };
+		92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A461E8BF7B600D6368A /* GlobalConst.m */; };
+		92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */; };
+		92AF3A4D1E8BF81E00D6368A /* SLMeSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */; };
 		92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EB8EA51E87AE3100A2B585 /* SLLoginRegisterTextField.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
@@ -92,6 +96,14 @@
 		92AEA85B1E8503F7001E6159 /* SLSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSettingViewController.m; sourceTree = "<group>"; };
 		92AEA85D1E850567001E6159 /* SLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLNavigationController.h; sourceTree = "<group>"; };
 		92AEA85E1E850567001E6159 /* SLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNavigationController.m; sourceTree = "<group>"; };
+		92AF3A421E8BF78B00D6368A /* SLMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMeCell.h; sourceTree = "<group>"; };
+		92AF3A431E8BF78B00D6368A /* SLMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeCell.m; sourceTree = "<group>"; };
+		92AF3A451E8BF7B600D6368A /* GlobalConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConst.h; sourceTree = "<group>"; };
+		92AF3A461E8BF7B600D6368A /* GlobalConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConst.m; sourceTree = "<group>"; };
+		92AF3A481E8BF7E500D6368A /* SLMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMeFooterView.h; sourceTree = "<group>"; };
+		92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeFooterView.m; sourceTree = "<group>"; };
+		92AF3A4B1E8BF81E00D6368A /* SLMeSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMeSquare.h; sourceTree = "<group>"; };
+		92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMeSquare.m; sourceTree = "<group>"; };
 		92EB8EA41E87AE3100A2B585 /* SLLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginRegisterTextField.h; sourceTree = "<group>"; };
 		92EB8EA51E87AE3100A2B585 /* SLLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginRegisterTextField.m; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,6 +343,8 @@
 		9241284A1E84E5AE00C5D419 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92AF3A4B1E8BF81E00D6368A /* SLMeSquare.h */,
+				92AF3A4C1E8BF81E00D6368A /* SLMeSquare.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,6 +352,10 @@
 		9241284B1E84E5AE00C5D419 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92AF3A421E8BF78B00D6368A /* SLMeCell.h */,
+				92AF3A431E8BF78B00D6368A /* SLMeCell.m */,
+				92AF3A481E8BF7E500D6368A /* SLMeFooterView.h */,
+				92AF3A491E8BF7E500D6368A /* SLMeFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +379,8 @@
 				92FD942E1E84027D00AFA363 /* AppDelegate.h */,
 				92FD942F1E84027D00AFA363 /* AppDelegate.m */,
 				924128431E84E58300C5D419 /* PrefixHeader.pch */,
+				92AF3A451E8BF7B600D6368A /* GlobalConst.h */,
+				92AF3A461E8BF7B600D6368A /* GlobalConst.m */,
 				924128301E84E58300C5D419 /* Main */,
 				924128281E84E58300C5D419 /* Essence-精华 */,
 				924128381E84E58300C5D419 /* New-新帖 */,
@@ -725,8 +745,11 @@
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
 				929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */,
 				924128511E84F30400C5D419 /* SLFollowViewController.m in Sources */,
+				92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */,
+				92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */,
 				92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */,
 				92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */,
+				92AF3A4D1E8BF81E00D6368A /* SLMeSquare.m in Sources */,
 				9241284E1E84F2A700C5D419 /* SLEssenceViewController.m in Sources */,
 				92AEA8591E850360001E6159 /* SLRecommendFollowViewController.m in Sources */,
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
@@ -734,6 +757,7 @@
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
 				924CA9411E88FA17006DACBA /* UITextField+SLExtension.m in Sources */,
 				9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */,
+				92AF3A441E8BF78B00D6368A /* SLMeCell.m in Sources */,
 				92FD942D1E84027D00AFA363 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

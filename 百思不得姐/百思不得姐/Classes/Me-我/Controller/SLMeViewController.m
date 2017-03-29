@@ -8,6 +8,8 @@
 
 #import "SLMeViewController.h"
 #import "SLSettingViewController.h"
+#import "SLMeCell.h"
+#import "SLMeFooterView.h"
 
 @interface SLMeViewController ()
 
@@ -16,10 +18,35 @@
 @implementation SLMeViewController
 
 #pragma mark - 系统回调
+- (instancetype)init
+{
+    return [self initWithStyle:UITableViewStyleGrouped];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = SLCommonBgColor;
+    [self setupNav];
+    
+    [self setupTab];
+}
+
+
+#pragma mark - 设置UI
+- (void)setupTab
+{
+    self.tableView.backgroundColor = SLCommonBgColor;
+    
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = SLMargin;
+    self.tableView.contentInset = UIEdgeInsetsMake(SLMargin - 35, 0, 0, 0);
+    
+    // 设置footer
+    self.tableView.tableFooterView = [[SLMeFooterView alloc] init];
+}
+
+- (void)setupNav
+{
     // 标题
     self.navigationItem.title = @"我的";
     // 右边-设置
@@ -38,11 +65,6 @@
     UIBarButtonItem *moonItem = [[UIBarButtonItem alloc] initWithCustomView:moonButton];
     
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
-    
-    self.tableView.sectionHeaderHeight = 0;
-    self.tableView.sectionFooterHeight = 10;
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
 }
 
 #pragma mark - 监听
@@ -82,28 +104,24 @@
     // 1.确定重用标示:
     static NSString *ID = @"MeCell";
     // 2.从缓存池中取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    SLMeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     // 3.如果空就手动创建
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[SLMeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%zd", indexPath.section];
+    // 4.设置数据
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"登录/注册";
+        cell.imageView.image = [UIImage imageNamed:@"publish-audio"];
+    } else {
+        cell.textLabel.text = @"离线下载";
+        // 只要有其他cell设置过imageView.image, 其他不显示图片的cell都需要设置imageView.image = nil
+        cell.imageView.image = nil;
+    }
+    
     
     return cell;
-}
-
-#pragma mark - 代理方法
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 2) return 200;
-    return 44;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    SLLog(@"%@", NSStringFromCGRect(cell.frame));
 }
 
 @end
