@@ -35,8 +35,6 @@
     [self.navigationController pushViewController:test animated:YES];
 }
 
-#pragma mark - 自定义方法
-
 #pragma mark - 数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
