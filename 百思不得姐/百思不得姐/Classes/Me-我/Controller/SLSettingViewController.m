@@ -9,6 +9,9 @@
 #import "SLSettingViewController.h"
 #import "SLTestViewController.h"
 
+/// 获得缓存文件夹路径
+#define CachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
 @interface SLSettingViewController ()
 
 @end
@@ -37,19 +40,16 @@
 #pragma mark - 自定义方法
 - (NSInteger)getCacheSize
 {
-    // 获得缓存文件夹路径
-    NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
-    
     // 文件管理者
     NSFileManager *mgr = [NSFileManager defaultManager];
     
     // 获取文件夹下所有的子路径
-    NSArray *subPaths = [mgr subpathsAtPath:cachesPath];
+    NSArray *subPaths = [mgr subpathsAtPath:CachePath];
 
     NSInteger totalSize = 0;
     for (NSString *subPath in subPaths) {
         // 获取文件全路径
-        NSString *filePath = [cachesPath stringByAppendingPathComponent:subPath];
+        NSString *filePath = [CachePath stringByAppendingPathComponent:subPath];
         
         // 判断隐藏文件
         if ([filePath containsString:@".DS"]) continue;
@@ -73,6 +73,48 @@
     return totalSize;
 }
 
+/**
+ *  根据一个文件夹路径计算出文件夹的大小
+ *
+ *  @param directoryPath 文件夹路径
+ *
+ *  @return 文件夹的大小
+ */
+- (NSInteger)getFileSize:(NSString *)directoryPath
+{
+    
+    // 文件管理者
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    
+    // 获取文件夹下所有的子路径
+    NSArray *subPaths = [mgr subpathsAtPath:directoryPath];
+    
+    NSInteger totalSize = 0;
+    for (NSString *subPath in subPaths) {
+        // 获取文件全路径
+        NSString *filePath = [directoryPath stringByAppendingPathComponent:subPath];
+        
+        // 判断隐藏文件
+        if ([filePath containsString:@".DS"]) continue;
+        
+        // 判断是否文件夹
+        BOOL isDirectory;
+        // 判断文件是否存在,并且判断是否是文件夹
+        BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
+        if (!isExist || isDirectory) continue;
+        
+        // 获取文件属性
+        // attributesOfItemAtPath:只能获取文件的大小,获取不到文件夹的大小
+        NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
+        
+        // 获取文件大小
+        NSInteger fileSize = [attr fileSize];
+        
+        totalSize += fileSize;
+    }
+    
+    return totalSize;
+}
 
 #pragma mark - 数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -98,10 +140,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    NSString *text = [NSString stringWithFormat:@"清除缓存(%zdB)", [self getCacheSize]];
+    NSString *text = [NSString stringWithFormat:@"清除缓存(%zdB)", [self getFileSize:CachePath]];
     cell.textLabel.text = text;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     return cell;
 }
 
