@@ -40,20 +40,37 @@
     // 获得缓存文件夹路径
     NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
     
-    // 获取default文件路径
-    NSString *defaultPath = [cachesPath stringByAppendingPathComponent:@"default/com.hackemist.SDWebImageCache.default/7f4cfb7adaed77b1bfae07698a016ce0.png"];
-    
     // 文件管理者
     NSFileManager *mgr = [NSFileManager defaultManager];
     
-    // 获取文件属性
-    // attributesOfItemAtPath:只能获取文件的大小,获取不到文件夹的大小
-    NSDictionary *attr = [mgr attributesOfItemAtPath:defaultPath error:nil];
+    // 获取文件夹下所有的子路径
+    NSArray *subPaths = [mgr subpathsAtPath:cachesPath];
+
+    NSInteger totalSize = 0;
+    for (NSString *subPath in subPaths) {
+        // 获取文件全路径
+        NSString *filePath = [cachesPath stringByAppendingPathComponent:subPath];
+        
+        // 判断隐藏文件
+        if ([filePath containsString:@".DS"]) continue;
+        
+        // 判断是否文件夹
+        BOOL isDirectory;
+        // 判断文件是否存在,并且判断是否是文件夹
+        BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
+        if (!isExist || isDirectory) continue;
+        
+        // 获取文件属性
+        // attributesOfItemAtPath:只能获取文件的大小,获取不到文件夹的大小
+        NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
+        
+        // 获取文件大小
+        NSInteger fileSize = [attr fileSize];
+        
+        totalSize += fileSize;
+    }
     
-    // default尺寸
-    NSInteger fileSize = [attr fileSize];
-    
-    return fileSize;
+    return totalSize;
 }
 
 
