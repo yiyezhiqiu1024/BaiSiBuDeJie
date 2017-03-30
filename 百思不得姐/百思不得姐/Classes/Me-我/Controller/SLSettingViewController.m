@@ -8,9 +8,10 @@
 
 #import "SLSettingViewController.h"
 #import "SLTestViewController.h"
+#import "SLFileTool.h"
 
 /// 获得缓存文件夹路径
-#define CachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+#define CachesPath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 @interface SLSettingViewController ()
 
@@ -39,57 +40,12 @@
 
 #pragma mark - 自定义方法
 /**
- *  根据一个文件夹路径计算出文件夹的大小
- *
- *  @param directoryPath 文件夹路径
- *
- *  @return 文件夹的大小
- */
-- (NSInteger)getFileSize:(NSString *)directoryPath
-{
-    
-    // 文件管理者
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    
-    // 获取文件夹下所有的子路径
-    NSArray *subPaths = [mgr subpathsAtPath:directoryPath];
-    
-    NSInteger totalSize = 0;
-    for (NSString *subPath in subPaths) {
-        // 获取文件全路径
-        NSString *filePath = [directoryPath stringByAppendingPathComponent:subPath];
-        
-        // 判断隐藏文件
-        if ([filePath containsString:@".DS"]) continue;
-        
-        // 判断是否文件夹
-        BOOL isDirectory;
-        // 判断文件是否存在,并且判断是否是文件夹
-        BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
-        if (!isExist || isDirectory) continue;
-        
-        // 获取文件属性
-        // attributesOfItemAtPath:只能获取文件的大小,获取不到文件夹的大小
-        NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
-        
-        // 获取文件大小
-        NSInteger fileSize = [attr fileSize];
-        
-        totalSize += fileSize;
-    }
-    
-    return totalSize;
-}
-
-/**
  *  获取缓存文件夹的大小的字符串文字
- *
- *  @return <#return value description#>
  */
 - (NSString *)sizeText
 {
     
-    NSInteger totalSize = [self getFileSize:CachePath];
+    NSInteger totalSize = [SLFileTool getFileSize:CachesPath];
     
     NSString *sizeText = @"清理缓存";
     // GB MB KB B
@@ -121,7 +77,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 1.确定重用标示:
-    static NSString *ID = @"setting";
+    static NSString *ID = @"SettingCell";
     
     // 2.从缓存池中取
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -140,19 +96,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 清空缓存
-    // 获取文件管理者
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    
-    // 获取cache文件夹下所有文件,不包括子路径的子路径
-    NSArray *subPaths = [mgr contentsOfDirectoryAtPath:CachePath error:nil];
-    
-    for (NSString *subPath in subPaths) {
-        // 拼接完成全路径
-        NSString *filePath = [CachePath stringByAppendingPathComponent:subPath];
-        
-        // 删除路径
-        [mgr removeItemAtPath:filePath error:nil];
-    }
+    [SLFileTool removeDirectoryPath:CachesPath];
     
     [self.tableView reloadData];
 }
