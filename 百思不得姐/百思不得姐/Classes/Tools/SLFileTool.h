@@ -14,10 +14,11 @@
  *  根据一个文件夹路径计算出文件夹的大小
  *
  *  @param directoryPath 文件夹路径
+ *  @param completion    完成之后的回调
  *
  *  @return 文件夹的大小
  */
-+ (NSInteger)getFileSize:(NSString *)directoryPath;
++ (void)getFileSize:(NSString *)directoryPath completion:(void(^)(NSInteger))completion;
 
 
 /**

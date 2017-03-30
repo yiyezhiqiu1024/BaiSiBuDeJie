@@ -10,14 +10,7 @@
 
 @implementation SLFileTool
 
-/**
- *  根据一个文件夹路径计算出文件夹的大小
- *
- *  @param directoryPath 文件夹路径
- *
- *  @return 文件夹的大小
- */
-+ (NSInteger)getFileSize:(NSString *)directoryPath
++ (void)getFileSize:(NSString *)directoryPath completion:(void(^)(NSInteger))completion
 {
     // 获取文件管理者
     NSFileManager *mgr = [NSFileManager defaultManager];
@@ -33,41 +26,43 @@
         
     }
     
-    
-    // NSFileManager
-    // attributesOfItemAtPath:指定文件路径,就能获取文件属性
-    // 把所有文件尺寸加起来
-    
-    // 获取文件夹下所有的子路径,包含子路径的子路径
-    NSArray *subPaths = [mgr subpathsAtPath:directoryPath];
-    
-    NSInteger totalSize = 0;
-    
-    for (NSString *subPath in subPaths) {
-        // 获取文件全路径
-        NSString *filePath = [directoryPath stringByAppendingPathComponent:subPath];
+    // 开启异步线程
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 获取文件夹下所有的子路径,包含子路径的子路径
+        NSArray *subPaths = [mgr subpathsAtPath:directoryPath];
         
-        // 判断隐藏文件
-        if ([filePath containsString:@".DS"]) continue;
+        NSInteger totalSize = 0;
         
-        // 判断是否文件夹
-        BOOL isDirectory;
-        // 判断文件是否存在,并且判断是否是文件夹
-        BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
-        if (!isExist || isDirectory) continue;
+        for (NSString *subPath in subPaths) {
+            // 获取文件全路径
+            NSString *filePath = [directoryPath stringByAppendingPathComponent:subPath];
+            
+            // 判断隐藏文件
+            if ([filePath containsString:@".DS"]) continue;
+            
+            // 判断是否文件夹
+            BOOL isDirectory;
+            // 判断文件是否存在,并且判断是否是文件夹
+            BOOL isExist = [mgr fileExistsAtPath:filePath isDirectory:&isDirectory];
+            if (!isExist || isDirectory) continue;
+            
+            // 获取文件属性
+            // attributesOfItemAtPath:只能获取文件,不能获取文件夹
+            NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
+            
+            // 获取文件尺寸
+            NSInteger fileSize = [attr fileSize];
+            
+            totalSize += fileSize;
+        }
         
-        // 获取文件属性
-        // attributesOfItemAtPath:只能获取文件尺寸,获取文件夹不对,
-        NSDictionary *attr = [mgr attributesOfItemAtPath:filePath error:nil];
-        
-        // 获取文件尺寸
-        NSInteger fileSize = [attr fileSize];
-        
-        totalSize += fileSize;
-    }
-    
-    return totalSize;
-    
+        // 计算完成回调,回到主线程
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(totalSize);
+            }
+        });
+    });
 }
 
 + (void)removeDirectoryPath:(NSString *)directoryPath

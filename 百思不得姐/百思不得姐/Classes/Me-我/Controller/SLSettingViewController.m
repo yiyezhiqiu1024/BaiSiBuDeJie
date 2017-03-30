@@ -9,12 +9,16 @@
 #import "SLSettingViewController.h"
 #import "SLTestViewController.h"
 #import "SLFileTool.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 /// 获得缓存文件夹路径
 #define CachesPath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 @interface SLSettingViewController ()
-
+/**
+ *  缓存文件总大小
+ */
+@property (nonatomic, assign) NSInteger totalSize;
 @end
 
 @implementation SLSettingViewController
@@ -30,6 +34,18 @@
     
     self.view.backgroundColor = SLCommonBgColor;
     self.navigationItem.title = @"设置";
+    
+    [SVProgressHUD showWithStatus:@"正在计算缓存尺寸...."];
+    
+    // 获取文件夹尺寸
+    [SLFileTool getFileSize:CachesPath completion:^(NSInteger totalSize) {
+        
+        _totalSize = totalSize;
+        
+        [self.tableView reloadData];
+        
+        [SVProgressHUD dismiss];
+    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -45,7 +61,7 @@
 - (NSString *)sizeText
 {
     
-    NSInteger totalSize = [SLFileTool getFileSize:CachesPath];
+    NSInteger totalSize = _totalSize;
     
     NSString *sizeText = @"清理缓存";
     // GB MB KB B
@@ -97,7 +113,7 @@
 {
     // 清空缓存
     [SLFileTool removeDirectoryPath:CachesPath];
-    
+    _totalSize = 0;
     [self.tableView reloadData];
 }
 
