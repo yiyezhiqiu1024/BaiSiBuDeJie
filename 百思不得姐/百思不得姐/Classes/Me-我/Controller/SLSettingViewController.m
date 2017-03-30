@@ -91,7 +91,7 @@
     
     NSInteger totalSize = [self getFileSize:CachePath];
     
-    NSString *sizeText = @"清除缓存";
+    NSString *sizeText = @"清理缓存";
     // GB MB KB B
     if (totalSize >= pow(10, 9)) { // size >= 1GB
         sizeText = [NSString stringWithFormat:@"%@（%.2fGB）", sizeText, totalSize / pow(10, 9)];
@@ -101,16 +101,8 @@
         sizeText = [NSString stringWithFormat:@"%@（%.2fKB）", sizeText, totalSize / pow(10, 3)];
     } else { // 1KB > size
         sizeText = [NSString stringWithFormat:@"%@（%zdB）", sizeText, totalSize];
+
     }
-//    if (totalSize >= 1000 * 1000 * 1000) { // totalSize >= 1GB
-//        sizeText = [NSString stringWithFormat:@"%.2fGB", totalSize / 1000.0 / 1000.0 / 1000.0];
-//    } else if (totalSize >= 1000 * 1000) { // 1GB > totalSize >= 1MB
-//        sizeText = [NSString stringWithFormat:@"%.2fMB", totalSize / 1000.0 / 1000.0];
-//    } else if (totalSize >= 1000) { // 1MB > totalSize >= 1KB
-//        sizeText = [NSString stringWithFormat:@"%.2fKB", totalSize / 1000.0];
-//    } else { // 1KB > totalSize
-//        sizeText = [NSString stringWithFormat:@"%zdB", totalSize];
-//    }
     
     return sizeText;
 }
@@ -142,6 +134,27 @@
     cell.textLabel.text = [self sizeText];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
+}
+
+#pragma mark - 代理方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 清空缓存
+    // 获取文件管理者
+    NSFileManager *mgr = [NSFileManager defaultManager];
+    
+    // 获取cache文件夹下所有文件,不包括子路径的子路径
+    NSArray *subPaths = [mgr contentsOfDirectoryAtPath:CachePath error:nil];
+    
+    for (NSString *subPath in subPaths) {
+        // 拼接完成全路径
+        NSString *filePath = [CachePath stringByAppendingPathComponent:subPath];
+        
+        // 删除路径
+        [mgr removeItemAtPath:filePath error:nil];
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end
