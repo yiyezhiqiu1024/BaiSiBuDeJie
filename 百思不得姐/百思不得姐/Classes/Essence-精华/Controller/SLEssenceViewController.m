@@ -8,6 +8,11 @@
 
 #import "SLEssenceViewController.h"
 #import "SLTitleButton.h"
+#import "SLAllViewController.h"
+#import "SLVideoViewController.h"
+#import "SLVoiceViewController.h"
+#import "SLPictureViewController.h"
+#import "SLWordViewController.h"
 
 @interface SLEssenceViewController ()
 /** 当前选中的标题按钮 */
@@ -25,19 +30,62 @@
     
     [self setupNav];
     
+    [self setupChildViewControllers];
+    
     [self setupScrollView];
     
     [self setupTitlesView];
+    
 }
 
 #pragma mark - 设置UI
 
+- (void)setupChildViewControllers
+{
+    SLAllViewController *all = [[SLAllViewController alloc] init];
+    [self addChildViewController:all];
+    
+    SLVideoViewController *video = [[SLVideoViewController alloc] init];
+    [self addChildViewController:video];
+    
+    SLVoiceViewController *voice = [[SLVoiceViewController alloc] init];
+    [self addChildViewController:voice];
+    
+    SLPictureViewController *picture = [[SLPictureViewController alloc] init];
+    [self addChildViewController:picture];
+    
+    SLWordViewController *word = [[SLWordViewController alloc] init];
+    [self addChildViewController:word];
+}
+
 - (void)setupScrollView
 {
+    // 不允许自动调整scrollView的内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = SLRandomColor;
     scrollView.frame = self.view.bounds;
+    scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scrollView];
+    
+    // 添加所有子控制器的view到scrollView中
+    NSUInteger count = self.childViewControllers.count;
+    for (NSUInteger i = 0; i < count; i++) {
+        UITableView *childVcView = (UITableView *)self.childViewControllers[i].view;
+        childVcView.backgroundColor = SLRandomColor;
+        childVcView.sl_x = i * childVcView.sl_width;
+        childVcView.sl_y = 0;
+        childVcView.sl_height = scrollView.sl_height;
+        [scrollView addSubview:childVcView];
+        
+        // 内边距
+        childVcView.contentInset = UIEdgeInsetsMake(64 + 35, 0, 49, 0);
+        childVcView.scrollIndicatorInsets = childVcView.contentInset;
+    }
+    scrollView.contentSize = CGSizeMake(count * scrollView.sl_width, 0);
 }
 
 - (void)setupTitlesView
@@ -67,15 +115,24 @@
     }
     
     // 按钮的选中颜色
-    SLTitleButton *lastTitleButton = titlesView.subviews.lastObject;
+    SLTitleButton *firstTitleButton = titlesView.subviews.firstObject;
     
     // 底部的指示器
     UIView *indicatorView = [[UIView alloc] init];
-    indicatorView.backgroundColor = [lastTitleButton titleColorForState:UIControlStateSelected];
+    indicatorView.backgroundColor = [firstTitleButton titleColorForState:UIControlStateSelected];
     indicatorView.sl_height = 1;
     indicatorView.sl_y = titlesView.sl_height - indicatorView.sl_height;
     [titlesView addSubview:indicatorView];
     self.indicatorView = indicatorView;
+    
+    // 立刻根据文字内容计算label的宽度
+    [firstTitleButton.titleLabel sizeToFit];
+    indicatorView.sl_width = firstTitleButton.titleLabel.sl_width;
+    indicatorView.sl_centerX = firstTitleButton.sl_centerX;
+    
+    // 默认情况 : 选中最前面的标题按钮
+    firstTitleButton.selected = YES;
+    self.selectedTitleButton = firstTitleButton;
 }
 
 - (void)setupNav
@@ -86,7 +143,7 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     // 左边
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem sl_itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
-
+    
 }
 
 #pragma mark - 监听

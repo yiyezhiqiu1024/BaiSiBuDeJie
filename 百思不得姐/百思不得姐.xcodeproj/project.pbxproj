@@ -21,6 +21,11 @@
 		928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 928315CE1E8D0270003CB724 /* SLFileTool.m */; };
 		928315D21E8D0F4B003CB724 /* SLClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928315D11E8D0F4B003CB724 /* SLClearCacheCell.m */; };
 		928315D51E8D4743003CB724 /* SLTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 928315D41E8D4743003CB724 /* SLTitleButton.m */; };
+		9283160F1E8D508F003CB724 /* SLAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928316061E8D508F003CB724 /* SLAllViewController.m */; };
+		928316101E8D508F003CB724 /* SLPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 928316081E8D508F003CB724 /* SLPictureViewController.m */; };
+		928316111E8D508F003CB724 /* SLVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283160A1E8D508F003CB724 /* SLVideoViewController.m */; };
+		928316121E8D508F003CB724 /* SLVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283160C1E8D508F003CB724 /* SLVoiceViewController.m */; };
+		928316131E8D508F003CB724 /* SLWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283160E1E8D508F003CB724 /* SLWordViewController.m */; };
 		929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929A35101E865D87004CCA98 /* SLFollowViewController.xib */; };
 		929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */; };
 		929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929A35141E865E17004CCA98 /* SLLoginRegisterViewController.xib */; };
@@ -92,6 +97,16 @@
 		928315D11E8D0F4B003CB724 /* SLClearCacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLClearCacheCell.m; sourceTree = "<group>"; };
 		928315D31E8D4743003CB724 /* SLTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTitleButton.h; sourceTree = "<group>"; };
 		928315D41E8D4743003CB724 /* SLTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTitleButton.m; sourceTree = "<group>"; };
+		928316051E8D508F003CB724 /* SLAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAllViewController.h; sourceTree = "<group>"; };
+		928316061E8D508F003CB724 /* SLAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAllViewController.m; sourceTree = "<group>"; };
+		928316071E8D508F003CB724 /* SLPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPictureViewController.h; sourceTree = "<group>"; };
+		928316081E8D508F003CB724 /* SLPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPictureViewController.m; sourceTree = "<group>"; };
+		928316091E8D508F003CB724 /* SLVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVideoViewController.h; sourceTree = "<group>"; };
+		9283160A1E8D508F003CB724 /* SLVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVideoViewController.m; sourceTree = "<group>"; };
+		9283160B1E8D508F003CB724 /* SLVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVoiceViewController.h; sourceTree = "<group>"; };
+		9283160C1E8D508F003CB724 /* SLVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVoiceViewController.m; sourceTree = "<group>"; };
+		9283160D1E8D508F003CB724 /* SLWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLWordViewController.h; sourceTree = "<group>"; };
+		9283160E1E8D508F003CB724 /* SLWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLWordViewController.m; sourceTree = "<group>"; };
 		929A35101E865D87004CCA98 /* SLFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLFollowViewController.xib; sourceTree = "<group>"; };
 		929A35121E865E17004CCA98 /* SLLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginRegisterViewController.h; sourceTree = "<group>"; };
 		929A35131E865E17004CCA98 /* SLLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginRegisterViewController.m; sourceTree = "<group>"; };
@@ -186,6 +201,16 @@
 			children = (
 				9241284C1E84F2A700C5D419 /* SLEssenceViewController.h */,
 				9241284D1E84F2A700C5D419 /* SLEssenceViewController.m */,
+				928316051E8D508F003CB724 /* SLAllViewController.h */,
+				928316061E8D508F003CB724 /* SLAllViewController.m */,
+				928316071E8D508F003CB724 /* SLPictureViewController.h */,
+				928316081E8D508F003CB724 /* SLPictureViewController.m */,
+				928316091E8D508F003CB724 /* SLVideoViewController.h */,
+				9283160A1E8D508F003CB724 /* SLVideoViewController.m */,
+				9283160B1E8D508F003CB724 /* SLVoiceViewController.h */,
+				9283160C1E8D508F003CB724 /* SLVoiceViewController.m */,
+				9283160D1E8D508F003CB724 /* SLWordViewController.h */,
+				9283160E1E8D508F003CB724 /* SLWordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -767,10 +792,12 @@
 			files = (
 				92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */,
 				92AF3A5C1E8BFC0500D6368A /* SLWebViewController.m in Sources */,
+				928316131E8D508F003CB724 /* SLWordViewController.m in Sources */,
 				928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */,
 				92AEA85F1E850567001E6159 /* SLNavigationController.m in Sources */,
 				924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */,
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
+				928316121E8D508F003CB724 /* SLVoiceViewController.m in Sources */,
 				924128441E84E58300C5D419 /* SLTabBarController.m in Sources */,
 				929A35191E866179004CCA98 /* SLQuickLoginButton.m in Sources */,
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
@@ -785,7 +812,10 @@
 				928315D21E8D0F4B003CB724 /* SLClearCacheCell.m in Sources */,
 				9241284E1E84F2A700C5D419 /* SLEssenceViewController.m in Sources */,
 				92AEA8591E850360001E6159 /* SLRecommendFollowViewController.m in Sources */,
+				9283160F1E8D508F003CB724 /* SLAllViewController.m in Sources */,
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
+				928316111E8D508F003CB724 /* SLVideoViewController.m in Sources */,
+				928316101E8D508F003CB724 /* SLPictureViewController.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
 				92AF3A581E8BFB7D00D6368A /* SLMeSquareButton.m in Sources */,
