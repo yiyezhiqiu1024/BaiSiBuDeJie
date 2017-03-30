@@ -28,6 +28,7 @@
     
     // 开启异步线程
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                
         // 获取文件夹下所有的子路径,包含子路径的子路径
         NSArray *subPaths = [mgr subpathsAtPath:directoryPath];
         
