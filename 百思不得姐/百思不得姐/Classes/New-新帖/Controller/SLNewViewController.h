@@ -6,8 +6,8 @@
 //  Copyright © 2017年 SLZeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SLEssenceViewController.h"
 
-@interface SLNewViewController : UIViewController
+@interface SLNewViewController : SLEssenceViewController
 
 @end
