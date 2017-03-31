@@ -52,6 +52,25 @@ typedef NS_ENUM(NSUInteger, SLTopicType) {
 @property (nonatomic, assign) CGFloat height;
 
 
+/** 小图 */
+@property (nonatomic, copy) NSString *small_image;
+/** 中图 */
+@property (nonatomic, copy) NSString *middle_image;
+/** 大图 */
+@property (nonatomic, copy) NSString *large_image;
+/** 音频时长 */
+@property (nonatomic, assign) NSInteger voicetime;
+/** 视频时长 */
+@property (nonatomic, assign) NSInteger videotime;
+/** 音频\视频的播放次数 */
+@property (nonatomic, assign) NSInteger playcount;
+
 /***** 额外增加的属性 - 方便开发 *****/
+/** cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
+/** 是否为gif动画图片 */@property (nonatomic, assign) BOOL is_gif;
+/** 中间内容的frame */
+@property (nonatomic, assign) CGRect contentF;
+/** 是否为超长图片 */
+@property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
 @end

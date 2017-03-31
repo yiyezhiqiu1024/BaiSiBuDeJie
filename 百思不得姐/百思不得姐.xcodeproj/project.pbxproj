@@ -53,6 +53,12 @@
 		92F647451E8E5ED80021F3BD /* SLExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647441E8E5ED80021F3BD /* SLExtensionConfig.m */; };
 		92F647481E8E5F450021F3BD /* SLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647471E8E5F450021F3BD /* SLComment.m */; };
 		92F6474B1E8E5F590021F3BD /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F6474A1E8E5F590021F3BD /* SLUser.m */; };
+		92F6474E1E8E7C910021F3BD /* SLTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F6474D1E8E7C910021F3BD /* SLTopicPictureView.m */; };
+		92F647501E8E7CA10021F3BD /* SLTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F6474F1E8E7CA10021F3BD /* SLTopicPictureView.xib */; };
+		92F647531E8E839D0021F3BD /* SLTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647521E8E839D0021F3BD /* SLTopicVideoView.m */; };
+		92F647551E8E84000021F3BD /* SLTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F647541E8E84000021F3BD /* SLTopicVideoView.xib */; };
+		92F647581E8E84280021F3BD /* SLTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647571E8E84280021F3BD /* SLTopicVoiceView.m */; };
+		92F6475A1E8E843C0021F3BD /* SLTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F647591E8E843C0021F3BD /* SLTopicVoiceView.xib */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
 		92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD94371E84027D00AFA363 /* Assets.xcassets */; };
@@ -167,6 +173,15 @@
 		92F647471E8E5F450021F3BD /* SLComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLComment.m; sourceTree = "<group>"; };
 		92F647491E8E5F590021F3BD /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
 		92F6474A1E8E5F590021F3BD /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
+		92F6474C1E8E7C910021F3BD /* SLTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTopicPictureView.h; sourceTree = "<group>"; };
+		92F6474D1E8E7C910021F3BD /* SLTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTopicPictureView.m; sourceTree = "<group>"; };
+		92F6474F1E8E7CA10021F3BD /* SLTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLTopicPictureView.xib; sourceTree = "<group>"; };
+		92F647511E8E839D0021F3BD /* SLTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTopicVideoView.h; sourceTree = "<group>"; };
+		92F647521E8E839D0021F3BD /* SLTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTopicVideoView.m; sourceTree = "<group>"; };
+		92F647541E8E84000021F3BD /* SLTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLTopicVideoView.xib; sourceTree = "<group>"; };
+		92F647561E8E84280021F3BD /* SLTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTopicVoiceView.h; sourceTree = "<group>"; };
+		92F647571E8E84280021F3BD /* SLTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTopicVoiceView.m; sourceTree = "<group>"; };
+		92F647591E8E843C0021F3BD /* SLTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLTopicVoiceView.xib; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD942C1E84027D00AFA363 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92FD942E1E84027D00AFA363 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -265,6 +280,15 @@
 				92F647351E8E44190021F3BD /* SLTopicCell.h */,
 				92F647361E8E44190021F3BD /* SLTopicCell.m */,
 				92F647371E8E44190021F3BD /* SLTopicCell.xib */,
+				92F6474C1E8E7C910021F3BD /* SLTopicPictureView.h */,
+				92F6474D1E8E7C910021F3BD /* SLTopicPictureView.m */,
+				92F6474F1E8E7CA10021F3BD /* SLTopicPictureView.xib */,
+				92F647511E8E839D0021F3BD /* SLTopicVideoView.h */,
+				92F647521E8E839D0021F3BD /* SLTopicVideoView.m */,
+				92F647541E8E84000021F3BD /* SLTopicVideoView.xib */,
+				92F647561E8E84280021F3BD /* SLTopicVoiceView.h */,
+				92F647571E8E84280021F3BD /* SLTopicVoiceView.m */,
+				92F647591E8E843C0021F3BD /* SLTopicVoiceView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -689,9 +713,12 @@
 			files = (
 				92AF3A5D1E8BFC0500D6368A /* SLWebViewController.xib in Resources */,
 				929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */,
+				92F647501E8E7CA10021F3BD /* SLTopicPictureView.xib in Resources */,
 				92F647391E8E44190021F3BD /* SLTopicCell.xib in Resources */,
+				92F6475A1E8E843C0021F3BD /* SLTopicVoiceView.xib in Resources */,
 				929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */,
 				92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */,
+				92F647551E8E84000021F3BD /* SLTopicVideoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +871,7 @@
 				92AF3A5C1E8BFC0500D6368A /* SLWebViewController.m in Sources */,
 				928316131E8D508F003CB724 /* SLWordViewController.m in Sources */,
 				928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */,
+				92F647531E8E839D0021F3BD /* SLTopicVideoView.m in Sources */,
 				92AEA85F1E850567001E6159 /* SLNavigationController.m in Sources */,
 				924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */,
 				92F3F86F1E8E1FCE0044FFE9 /* SLRefreshHeader.m in Sources */,
@@ -861,6 +889,7 @@
 				92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */,
 				92F3F86C1E8E1F4D0044FFE9 /* SLTopic.m in Sources */,
 				92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */,
+				92F647581E8E84280021F3BD /* SLTopicVoiceView.m in Sources */,
 				92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */,
 				92AF3A4D1E8BF81E00D6368A /* SLMeSquare.m in Sources */,
 				928315D21E8D0F4B003CB724 /* SLClearCacheCell.m in Sources */,
@@ -870,6 +899,7 @@
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
 				928316111E8D508F003CB724 /* SLVideoViewController.m in Sources */,
 				928316101E8D508F003CB724 /* SLPictureViewController.m in Sources */,
+				92F6474E1E8E7C910021F3BD /* SLTopicPictureView.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
 				92F647381E8E44190021F3BD /* SLTopicCell.m in Sources */,

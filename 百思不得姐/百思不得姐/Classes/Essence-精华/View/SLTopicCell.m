@@ -11,6 +11,9 @@
 #import <UIImageView+WebCache.h>
 #import "SLComment.h"
 #import "SLUser.h"
+#import "SLTopicPictureView.h"
+#import "SLTopicVoiceView.h"
+#import "SLTopicVideoView.h"
 
 @interface SLTopicCell()
 /** 头像 */
@@ -32,10 +35,49 @@
 /** 最热评论-整体 */
 @property (weak, nonatomic) IBOutlet UIView *topCmtView;
 @property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
+
+/* 中间控件 */
+/** 图片控件 */
+@property (nonatomic, weak) SLTopicPictureView *pictureView;
+/** 声音控件 */
+@property (nonatomic, weak) SLTopicVoiceView *voiceView;
+/** 视频控件 */
+@property (nonatomic, weak) SLTopicVideoView *videoView;
 @end
 
 
 @implementation SLTopicCell
+
+#pragma mark - 懒加载
+- (SLTopicPictureView *)pictureView
+{
+    if (!_pictureView) {
+        SLTopicPictureView *pictureView = [SLTopicPictureView sl_viewFromXib];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
+
+- (SLTopicVoiceView *)voiceView
+{
+    if (!_voiceView) {
+        SLTopicVoiceView *voiceView = [SLTopicVoiceView sl_viewFromXib];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
+}
+
+- (SLTopicVideoView *)videoView
+{
+    if (!_videoView) {
+        SLTopicVideoView *videoView = [SLTopicVideoView sl_viewFromXib];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
+}
 
 #pragma mark - 系统回调
 - (void)awakeFromNib
@@ -83,13 +125,30 @@
     // 帖子类型处理
 #pragma mark - 根据SLTopic模型数据的情况来决定中间添加什么控件(内容)
     if (topic.type == SLTopicTypeVideo) { // 视频
+        self.videoView.hidden = NO;
+        self.videoView.frame = topic.contentF;
+        self.videoView.topic = topic;
         
+        self.voiceView.hidden = YES;
+        self.pictureView.hidden = YES;
     } else if (topic.type == SLTopicTypeVoice) { // 音频
+        self.voiceView.hidden = NO;
+        self.voiceView.frame = topic.contentF;
+        self.voiceView.topic = topic;
         
+        self.videoView.hidden = YES;
+        self.pictureView.hidden = YES;
     } else if (topic.type == SLTopicTypeWord) { // 段子
-        
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.pictureView.hidden = YES;
     } else if (topic.type == SLTopicTypePicture) { // 图片
+        self.pictureView.hidden = NO;
+        self.pictureView.frame = topic.contentF;
+        self.pictureView.topic = topic;
         
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
     }
 
 }

@@ -81,6 +81,18 @@ static NSCalendar *calendar_;
     if (self.type != SLTopicTypeWord) { // 如果是图片\声音\视频帖子, 才需要计算中间内容的高度
         // 中间内容的高度 == 中间内容的宽度 * 图片的真实高度 / 图片的真实宽度
         CGFloat contentH = textMaxW * self.height / self.width;
+        
+        if (contentH >= [UIScreen mainScreen].bounds.size.height) { // 超长图片
+            // 将超长图片的高度变为200
+            contentH = 200;
+            self.bigPicture = YES;
+        }
+        
+        // 这里的cellHeight就是中间内容的y值
+        self.contentF = CGRectMake(SLMargin, _cellHeight, textMaxW, contentH);
+        
+        // 累加中间内容的高度
+        
         _cellHeight += contentH + SLMargin;
     }
     

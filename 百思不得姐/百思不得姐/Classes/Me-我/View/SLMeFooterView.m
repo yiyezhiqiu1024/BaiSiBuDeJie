@@ -101,7 +101,7 @@
     // pagesCount = (总数  +  每页显示的最大数量 - 1) / 每页显示的最大数量
     
     //    NSUInteger rowsCount = (count + maxColsCount - 1) / maxColsCount;
-    //    self.xmg_height = rowsCount * buttonH;
+    //    self.sl_height = rowsCount * buttonH;
 }
 
 #pragma mark - 监听
