@@ -12,3 +12,6 @@
 CGFloat const SLMargin = 10;
 /** 通用的小间距值 */
 CGFloat const SLSmallMargin = SLMargin * 0.5;
+
+/** 公共的URL */
+NSString * const SLCommonURL = @"http://api.budejie.com/api/api_open.php";

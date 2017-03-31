@@ -13,3 +13,6 @@
 UIKIT_EXTERN CGFloat const SLMargin;
 /** 通用的小间距值 */
 UIKIT_EXTERN CGFloat const SLSmallMargin;
+
+/** 公共的URL */
+UIKIT_EXTERN NSString * const SLCommonURL;
