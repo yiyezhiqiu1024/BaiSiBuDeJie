@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, SLTopicType) {
+    /** 全部 */
+    SLTopicTypeAll = 1,
     /** 图片 */
     SLTopicTypePicture = 10,
     /** 段子 */

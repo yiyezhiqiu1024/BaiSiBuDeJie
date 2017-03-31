@@ -6,8 +6,8 @@
 //  Copyright © 2017年 SLZeng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SLTopicViewController.h"
 
-@interface SLVoiceViewController : UITableViewController
+@interface SLVoiceViewController : SLTopicViewController
 
 @end
