@@ -20,6 +20,9 @@
 #import "UITextField+SLExtension.h"
 #import "GlobalConst.h"
 
+/*** 将服务器返回的数据写入plist ***/
+#define XMGWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/Anthony/Desktop/%@.plist", filename] atomically:YES];
+
 /*** 日志 ***/
 #ifdef DEBUG
 #define SLLog(...) NSLog(__VA_ARGS__)
