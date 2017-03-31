@@ -8,6 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
+//typedef enum {
+//    /** 图片 */
+//    SLTopicTypePicture = 10,
+//    /** 段子 */
+//    SLTopicTypeWord = 29,
+//    /** 声音 */
+//    SLTopicTypeVoice = 31,
+//    /** 视频 */
+//    SLTopicTypeVideo = 41,
+//} SLTopicType;
+
+typedef NS_ENUM(NSUInteger, SLTopicType) {
+    /** 图片 */
+    SLTopicTypePicture = 10,
+    /** 段子 */
+    SLTopicTypeWord = 29,
+    /** 声音 */
+    SLTopicTypeVoice = 31,
+    /** 视频 */
+    SLTopicTypeVideo = 41
+};
+
+
 @class SLComment;
 
 @interface SLTopic : NSObject
@@ -30,4 +53,7 @@
 
 /** 最热评论 */
 @property (nonatomic, strong) SLComment *top_cmt;
+
+/** 帖子类型 */
+@property (nonatomic, assign) SLTopicType type;
 @end

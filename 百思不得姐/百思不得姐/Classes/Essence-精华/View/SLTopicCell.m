@@ -79,6 +79,19 @@
     } else { // 没有最热评论
         self.topCmtView.hidden = YES;
     }
+    
+    // 帖子类型处理
+#pragma mark - 根据SLTopic模型数据的情况来决定中间添加什么控件(内容)
+    if (topic.type == SLTopicTypeVideo) { // 视频
+        
+    } else if (topic.type == SLTopicTypeVoice) { // 音频
+        
+    } else if (topic.type == SLTopicTypeWord) { // 段子
+        
+    } else if (topic.type == SLTopicTypePicture) { // 图片
+        
+    }
+
 }
 
 #pragma mark - 自定义方法
