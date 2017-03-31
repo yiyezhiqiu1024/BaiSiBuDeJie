@@ -7,13 +7,15 @@
 //
 
 #import "SLTopic.h"
+#import "SLComment.h"
+#import "SLUser.h"
 
 @implementation SLTopic
 
 static NSDateFormatter *fmt_;
 static NSCalendar *calendar_;
 /**
- *  在第一次使用XMGTopic类时调用1次
+ *  在第一次使用SLTopic类时调用1次
  */
 + (void)initialize
 {
@@ -51,5 +53,51 @@ static NSCalendar *calendar_;
     } else { // 非今年
         return _created_at;
     }
+}
+
+// 屏幕宽度 == 375
+// 图片显示出来的宽度 == 355
+// 图片显示出来的高度 == 355 * 300 / 710
+
+// 服务器返回的图片宽度 == 710
+// 服务器返回的图片高度 == 300
+
+- (CGFloat)cellHeight
+{
+    // 如果cell的高度已经计算过, 就直接返回
+    if (_cellHeight) return _cellHeight;
+    
+    // 1.头像
+    _cellHeight = 55;
+    
+    // 2.文字
+    CGFloat textMaxW = [UIScreen mainScreen].bounds.size.width - 2 * SLMargin;
+    CGSize textMaxSize = CGSizeMake(textMaxW, MAXFLOAT);
+    // CGSize textSize = [self.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:textMaxSize];
+    CGSize textSize = [self.text boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size;
+    _cellHeight += textSize.height + SLMargin;
+    
+    // 3.中间的内容
+    if (self.type != SLTopicTypeWord) { // 如果是图片\声音\视频帖子, 才需要计算中间内容的高度
+        // 中间内容的高度 == 中间内容的宽度 * 图片的真实高度 / 图片的真实宽度
+        CGFloat contentH = textMaxW * self.height / self.width;
+        _cellHeight += contentH + SLMargin;
+    }
+    
+    // 4.最热评论
+    if (self.top_cmt) { // 如果有最热评论
+        // 最热评论-标题
+        _cellHeight += 20;
+        // 最热评论-内容
+        NSString *topCmtContent = [NSString stringWithFormat:@"%@ : %@", self.top_cmt.user.username, self.top_cmt.content];
+        // CGSize topCmtContentSize = [topCmtContent sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:textMaxSize];
+        CGSize topCmtContentSize = [topCmtContent boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size;
+        _cellHeight += topCmtContentSize.height + SLMargin;
+    }
+    
+    // 5.底部 - 工具条
+    _cellHeight += 35 + SLMargin;
+    
+    return _cellHeight;
 }
 @end

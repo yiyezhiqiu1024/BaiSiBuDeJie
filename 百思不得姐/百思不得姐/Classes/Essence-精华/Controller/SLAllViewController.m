@@ -58,7 +58,6 @@ static NSString * const SLTopicCellId = @"topic";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SLTopicCell class]) bundle:nil] forCellReuseIdentifier:SLTopicCellId];
-    self.tableView.rowHeight = 250;
 }
 
 - (void)setupRefresh
@@ -160,6 +159,13 @@ static NSString * const SLTopicCellId = @"topic";
     cell.topic = self.topics[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - 代理方法
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    #pragma mark - 根据SLTopic模型数据计算出cell具体的高度, 并且返回
+    return self.topics[indexPath.row].cellHeight;
 }
 
 @end

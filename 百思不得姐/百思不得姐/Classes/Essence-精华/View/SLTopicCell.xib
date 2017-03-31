@@ -168,7 +168,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="64" height="20"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论最热评论最热评论最热评论最热评论最热评论最热评论最热评论最最热评论最" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZ3-xX-b31" userLabel="最热评论-内容">
@@ -223,7 +223,7 @@
                 <outlet property="topCmtContentLabel" destination="UZ3-xX-b31" id="IFB-JP-sW6"/>
                 <outlet property="topCmtView" destination="be4-94-TqF" id="d2o-nO-xua"/>
             </connections>
-            <point key="canvasLocation" x="192" y="280"/>
+            <point key="canvasLocation" x="342" y="288"/>
         </tableViewCell>
     </objects>
     <resources>

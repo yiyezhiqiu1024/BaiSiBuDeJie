@@ -8,17 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//typedef enum {
-//    /** 图片 */
-//    SLTopicTypePicture = 10,
-//    /** 段子 */
-//    SLTopicTypeWord = 29,
-//    /** 声音 */
-//    SLTopicTypeVoice = 31,
-//    /** 视频 */
-//    SLTopicTypeVideo = 41,
-//} SLTopicType;
-
 typedef NS_ENUM(NSUInteger, SLTopicType) {
     /** 图片 */
     SLTopicTypePicture = 10,
@@ -56,4 +45,13 @@ typedef NS_ENUM(NSUInteger, SLTopicType) {
 
 /** 帖子类型 */
 @property (nonatomic, assign) SLTopicType type;
+
+/** 图片的真实宽度 */
+@property (nonatomic, assign) CGFloat width;
+/** 图片的真实高度 */
+@property (nonatomic, assign) CGFloat height;
+
+
+/***** 额外增加的属性 - 方便开发 *****/
+@property (nonatomic, assign) CGFloat cellHeight;
 @end
