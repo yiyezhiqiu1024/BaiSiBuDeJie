@@ -67,19 +67,6 @@
     self.createdAtLabel.text = topic.created_at;
     self.text_label.text = topic.text;
     
-    //    if (topic.ding >= 10000) {
-    //        [self.dingButton setTitle:[NSString stringWithFormat:@"%.1f万", topic.ding / 10000.0] forState:UIControlStateNormal];
-    //    } else if (topic.ding > 0) {
-    //        [self.dingButton setTitle:[NSString stringWithFormat:@"%zd", topic.ding] forState:UIControlStateNormal];
-    //    } else {
-    //        [self.dingButton setTitle:@"顶" forState:UIControlStateNormal];
-    //    }
-    
-    //    topic.ding = arc4random_uniform(8000) + arc4random_uniform(5000);
-    //    topic.cai = arc4random_uniform(8000) + arc4random_uniform(5000);
-    //    topic.repost = arc4random_uniform(8000) + arc4random_uniform(5000);
-    //    topic.comment = 0;
-    
     [self setupButton:self.dingButton number:topic.ding placeholder:@"顶"];
     [self setupButton:self.caiButton number:topic.cai placeholder:@"踩"];
     [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
@@ -120,8 +107,6 @@
 {
     frame.size.height -= SLMargin;
     frame.origin.y += SLMargin;
-//    frame.origin.x += SLMargin;
-//    frame.size.width -= 2 * SLMargin;
     
     [super setFrame:frame];
 }

@@ -19,6 +19,11 @@
 #import "UIBarButtonItem+SLExtension.h"
 #import "UITextField+SLExtension.h"
 #import "GlobalConst.h"
+#import "NSDate+SLExtension.h"
+#import "NSCalendar+SLCurrentCalendar.h"
+
+/*** 当前系统版本判断 ***/
+#define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
 
 /*** 将服务器返回的数据写入plist ***/
 #define XMGWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/Anthony/Desktop/%@.plist", filename] atomically:YES];
