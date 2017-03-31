@@ -72,18 +72,31 @@
     [self setupButton:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButton:self.commentButton number:topic.comment placeholder:@"评论"];
     
-    /*
-     数量 >= 10000
-     比如53454 -> 5.3万
-     
-     数量 < 10000
-     比如5435 -> 5435
-     比如546 -> 546
-     
-     数量 == 0
-     比如0 -> 评论
-     
-     */
+    //    NSString *str = @"";
+    //    if (str.length) {
+    //
+    //    }
+    
+    
+    // 没有最热评论
+    // topic.top_cmt = @[];
+    
+    // 有最热评论
+    // topic.top_cmt = @[@{}];
+    
+    // 最热评论 不能用if (topic.top_cmt)
+    // if (topic.top_cmt.count) { // 有最热评论
+    
+    NSDictionary *comment = topic.top_cmt.firstObject;
+    if (comment) { // 有最热评论
+        self.topCmtView.hidden = NO;
+        
+        NSString *username = comment[@"user"][@"username"]; // 用户名
+        NSString *content = comment[@"content"]; // 评论内容
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", username, content];
+    } else { // 没有最热评论
+        self.topCmtView.hidden = YES;
+    }
 }
 
 /**
