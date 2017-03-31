@@ -50,6 +50,9 @@
 		92F647391E8E44190021F3BD /* SLTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F647371E8E44190021F3BD /* SLTopicCell.xib */; };
 		92F6473F1E8E59FC0021F3BD /* NSCalendar+SLCurrentCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F6473E1E8E59FC0021F3BD /* NSCalendar+SLCurrentCalendar.m */; };
 		92F647421E8E5A800021F3BD /* NSDate+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647411E8E5A800021F3BD /* NSDate+SLExtension.m */; };
+		92F647451E8E5ED80021F3BD /* SLExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647441E8E5ED80021F3BD /* SLExtensionConfig.m */; };
+		92F647481E8E5F450021F3BD /* SLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F647471E8E5F450021F3BD /* SLComment.m */; };
+		92F6474B1E8E5F590021F3BD /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F6474A1E8E5F590021F3BD /* SLUser.m */; };
 		92FD942D1E84027D00AFA363 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942C1E84027D00AFA363 /* main.m */; };
 		92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD942F1E84027D00AFA363 /* AppDelegate.m */; };
 		92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD94371E84027D00AFA363 /* Assets.xcassets */; };
@@ -158,6 +161,12 @@
 		92F6473E1E8E59FC0021F3BD /* NSCalendar+SLCurrentCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+SLCurrentCalendar.m"; sourceTree = "<group>"; };
 		92F647401E8E5A800021F3BD /* NSDate+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SLExtension.h"; sourceTree = "<group>"; };
 		92F647411E8E5A800021F3BD /* NSDate+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SLExtension.m"; sourceTree = "<group>"; };
+		92F647431E8E5ED80021F3BD /* SLExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLExtensionConfig.h; sourceTree = "<group>"; };
+		92F647441E8E5ED80021F3BD /* SLExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLExtensionConfig.m; sourceTree = "<group>"; };
+		92F647461E8E5F450021F3BD /* SLComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLComment.h; sourceTree = "<group>"; };
+		92F647471E8E5F450021F3BD /* SLComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLComment.m; sourceTree = "<group>"; };
+		92F647491E8E5F590021F3BD /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
+		92F6474A1E8E5F590021F3BD /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
 		92FD94281E84027D00AFA363 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD942C1E84027D00AFA363 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92FD942E1E84027D00AFA363 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -240,6 +249,10 @@
 			children = (
 				92F3F86A1E8E1F4D0044FFE9 /* SLTopic.h */,
 				92F3F86B1E8E1F4D0044FFE9 /* SLTopic.m */,
+				92F647461E8E5F450021F3BD /* SLComment.h */,
+				92F647471E8E5F450021F3BD /* SLComment.m */,
+				92F647491E8E5F590021F3BD /* SLUser.h */,
+				92F6474A1E8E5F590021F3BD /* SLUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,6 +480,8 @@
 				924128431E84E58300C5D419 /* PrefixHeader.pch */,
 				92AF3A451E8BF7B600D6368A /* GlobalConst.h */,
 				92AF3A461E8BF7B600D6368A /* GlobalConst.m */,
+				92F647431E8E5ED80021F3BD /* SLExtensionConfig.h */,
+				92F647441E8E5ED80021F3BD /* SLExtensionConfig.m */,
 				924128301E84E58300C5D419 /* Main */,
 				924128281E84E58300C5D419 /* Essence-精华 */,
 				924128381E84E58300C5D419 /* New-新帖 */,
@@ -825,6 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */,
+				92F6474B1E8E5F590021F3BD /* SLUser.m in Sources */,
 				92AF3A5C1E8BFC0500D6368A /* SLWebViewController.m in Sources */,
 				928316131E8D508F003CB724 /* SLWordViewController.m in Sources */,
 				928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */,
@@ -840,6 +856,7 @@
 				929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */,
 				924128511E84F30400C5D419 /* SLFollowViewController.m in Sources */,
 				928315D51E8D4743003CB724 /* SLTitleButton.m in Sources */,
+				92F647451E8E5ED80021F3BD /* SLExtensionConfig.m in Sources */,
 				92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */,
 				92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */,
 				92F3F86C1E8E1F4D0044FFE9 /* SLTopic.m in Sources */,
@@ -857,6 +874,7 @@
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
 				92F647381E8E44190021F3BD /* SLTopicCell.m in Sources */,
 				92AF3A581E8BFB7D00D6368A /* SLMeSquareButton.m in Sources */,
+				92F647481E8E5F450021F3BD /* SLComment.m in Sources */,
 				924CA9411E88FA17006DACBA /* UITextField+SLExtension.m in Sources */,
 				9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */,
 				92F3F8721E8E20FE0044FFE9 /* SLRefreshFooter.m in Sources */,

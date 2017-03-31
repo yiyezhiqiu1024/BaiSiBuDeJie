@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SLComment;
+
 @interface SLTopic : NSObject
 /** 用户的名字 */
 @property (nonatomic, copy) NSString *name;
@@ -27,5 +29,5 @@
 @property (nonatomic, assign) NSInteger comment;
 
 /** 最热评论 */
-@property (nonatomic, strong) NSArray *top_cmt;
+@property (nonatomic, strong) SLComment *top_cmt;
 @end

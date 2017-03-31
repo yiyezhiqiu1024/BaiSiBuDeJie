@@ -85,6 +85,7 @@ static NSString * const SLTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
+    params[@"type"] = @"1";
     
     // 发送请求
     [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -93,14 +94,7 @@ static NSString * const SLTopicCellId = @"topic";
         
         // 字典数组 -> 模型数组
         self.topics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        SLWriteToPlist(responseObject, @"new_topics")
-        for (NSUInteger i = 0; i < self.topics.count; i++) {
-            if (self.topics[i].top_cmt.count) { // 最热评论
-                SLLog(@"下拉刷新 - %zd", i);
-            }
-        }
-        
+       
         // 刷新表格
         [self.tableView reloadData];
         
@@ -131,6 +125,7 @@ static NSString * const SLTopicCellId = @"topic";
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     params[@"maxtime"] = self.maxtime;
+    params[@"type"] = @"1";
     
     // 发送请求
     [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -140,13 +135,6 @@ static NSString * const SLTopicCellId = @"topic";
         // 字典数组 -> 模型数组
         NSArray<SLTopic *> *moreTopics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
-        
-        SLWriteToPlist(responseObject, @"more_topics")
-        for (NSUInteger i = 0; i < moreTopics.count; i++) {
-            if (moreTopics[i].top_cmt.count) { // 最热评论
-                SLLog(@"上拉刷新 - %zd", i);
-            }
-        }
         
         // 刷新表格
         [self.tableView reloadData];

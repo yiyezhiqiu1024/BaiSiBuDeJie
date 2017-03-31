@@ -223,7 +223,7 @@
                 <outlet property="topCmtContentLabel" destination="UZ3-xX-b31" id="IFB-JP-sW6"/>
                 <outlet property="topCmtView" destination="be4-94-TqF" id="d2o-nO-xua"/>
             </connections>
-            <point key="canvasLocation" x="11" y="278"/>
+            <point key="canvasLocation" x="192" y="280"/>
         </tableViewCell>
     </objects>
     <resources>
