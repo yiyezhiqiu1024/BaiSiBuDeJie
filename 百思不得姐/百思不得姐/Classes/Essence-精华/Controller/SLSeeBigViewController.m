@@ -63,6 +63,25 @@
 }
 
 - (IBAction)save {
+    // UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(a:b:c:), nil);
+    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+/**
+ *  通过UIImageWriteToSavedPhotosAlbum函数写入图片完毕后就会调用这个方法
+ *
+ *  @param image       写入的图片
+ *  @param error       错误信息
+ *  @param contextInfo UIImageWriteToSavedPhotosAlbum函数的最后一个参数
+ */
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        [SVProgressHUD showErrorWithStatus:@"图片保存失败!"];
+    } else {
+        [SVProgressHUD showSuccessWithStatus:@"图片保存成功!"];
+    }
+    
 }
 
 #pragma mark - <UIScrollViewDelegate>
