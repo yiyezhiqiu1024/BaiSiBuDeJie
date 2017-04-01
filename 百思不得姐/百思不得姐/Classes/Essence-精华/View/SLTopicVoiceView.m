@@ -9,7 +9,7 @@
 #import "SLTopicVoiceView.h"
 #import "SLTopic.h"
 #import <UIImageView+WebCache.h>
-
+#import "SLSeeBigViewController.h"
 
 @interface SLTopicVoiceView()
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
@@ -21,6 +21,15 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBig)]];
+}
+
+- (void)seeBig
+{
+    SLSeeBigViewController *seeBig = [[SLSeeBigViewController alloc] init];
+    seeBig.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:seeBig animated:YES completion:nil];
 }
 
 - (void)setTopic:(SLTopic *)topic

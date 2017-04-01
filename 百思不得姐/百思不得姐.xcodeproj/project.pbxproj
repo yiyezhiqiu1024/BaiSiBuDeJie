@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3B60FF5BE6052B8DEA8C1AB0 /* libPods-百思不得姐UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EEBDAB45C163A0FCBA239F /* libPods-百思不得姐UITests.a */; };
 		4D7E9DB03BEC1D10031C5CF8 /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57885D07A160A230047B670 /* libPods-百思不得姐.a */; };
+		9237B8E01E8F304300D34801 /* SLSeeBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */; };
+		9237B8E11E8F304300D34801 /* SLSeeBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */; };
 		924128441E84E58300C5D419 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128331E84E58300C5D419 /* SLTabBarController.m */; };
 		924128461E84E58300C5D419 /* SLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241283E1E84E58300C5D419 /* SLTestViewController.m */; };
 		924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128421E84E58300C5D419 /* UIView+SLExtension.m */; };
@@ -89,6 +91,9 @@
 		470EBC3E64F671DE9C983556 /* Pods-百思不得姐Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B27298F31A9ABA260E1C495 /* Pods-百思不得姐UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		79745F7A405814BF24CC4A37 /* libPods-百思不得姐Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9237B8DD1E8F304300D34801 /* SLSeeBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSeeBigViewController.h; sourceTree = "<group>"; };
+		9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSeeBigViewController.m; sourceTree = "<group>"; };
+		9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSeeBigViewController.xib; sourceTree = "<group>"; };
 		924128321E84E58300C5D419 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
 		924128331E84E58300C5D419 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		9241283D1E84E58300C5D419 /* SLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTestViewController.h; sourceTree = "<group>"; };
@@ -260,6 +265,9 @@
 				9283160E1E8D508F003CB724 /* SLWordViewController.m */,
 				92F6475B1E8E89E00021F3BD /* SLTopicViewController.h */,
 				92F6475C1E8E89E00021F3BD /* SLTopicViewController.m */,
+				9237B8DD1E8F304300D34801 /* SLSeeBigViewController.h */,
+				9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */,
+				9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -717,6 +725,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AF3A5D1E8BFC0500D6368A /* SLWebViewController.xib in Resources */,
+				9237B8E11E8F304300D34801 /* SLSeeBigViewController.xib in Resources */,
 				929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */,
 				92F647501E8E7CA10021F3BD /* SLTopicPictureView.xib in Resources */,
 				92F647391E8E44190021F3BD /* SLTopicCell.xib in Resources */,
@@ -905,6 +914,7 @@
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
 				928316111E8D508F003CB724 /* SLVideoViewController.m in Sources */,
 				928316101E8D508F003CB724 /* SLPictureViewController.m in Sources */,
+				9237B8E01E8F304300D34801 /* SLSeeBigViewController.m in Sources */,
 				92F6474E1E8E7C910021F3BD /* SLTopicPictureView.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,

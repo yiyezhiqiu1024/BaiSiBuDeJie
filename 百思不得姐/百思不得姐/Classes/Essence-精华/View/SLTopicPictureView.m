@@ -11,6 +11,7 @@
 #import "SLTopic.h"
 #import <AFNetworking.h>
 #import <DALabeledCircularProgressView.h>
+#import "SLSeeBigViewController.h"
 
 @interface SLTopicPictureView()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -29,6 +30,17 @@
     
     self.progressView.roundedCorners = 5;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBig)]];
+}
+
+- (void)seeBig
+{
+    SLSeeBigViewController *seeBig = [[SLSeeBigViewController alloc] init];
+    seeBig.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:seeBig animated:YES completion:nil];
+
 }
 
 - (void)setTopic:(SLTopic *)topic
