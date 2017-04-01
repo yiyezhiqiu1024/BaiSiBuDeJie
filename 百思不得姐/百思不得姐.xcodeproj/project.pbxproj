@@ -17,6 +17,8 @@
 		9237B9021E8F4F2900D34801 /* SLRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B9001E8F4F2900D34801 /* SLRecommendTagCell.xib */; };
 		9237B9051E8F509500D34801 /* SLRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B9041E8F509500D34801 /* SLRecommendTag.m */; };
 		9237B9081E8F509E00D34801 /* SLRecommendTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B9071E8F509E00D34801 /* SLRecommendTagViewController.m */; };
+		9237B90C1E8F5DAD00D34801 /* SLCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B90A1E8F5DAD00D34801 /* SLCommentViewController.m */; };
+		9237B90D1E8F5DAD00D34801 /* SLCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B90B1E8F5DAD00D34801 /* SLCommentViewController.xib */; };
 		924128441E84E58300C5D419 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128331E84E58300C5D419 /* SLTabBarController.m */; };
 		924128461E84E58300C5D419 /* SLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241283E1E84E58300C5D419 /* SLTestViewController.m */; };
 		924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128421E84E58300C5D419 /* UIView+SLExtension.m */; };
@@ -111,6 +113,9 @@
 		9237B9041E8F509500D34801 /* SLRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRecommendTag.m; sourceTree = "<group>"; };
 		9237B9061E8F509E00D34801 /* SLRecommendTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRecommendTagViewController.h; sourceTree = "<group>"; };
 		9237B9071E8F509E00D34801 /* SLRecommendTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRecommendTagViewController.m; sourceTree = "<group>"; };
+		9237B9091E8F5DAD00D34801 /* SLCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCommentViewController.h; sourceTree = "<group>"; };
+		9237B90A1E8F5DAD00D34801 /* SLCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCommentViewController.m; sourceTree = "<group>"; };
+		9237B90B1E8F5DAD00D34801 /* SLCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLCommentViewController.xib; sourceTree = "<group>"; };
 		924128321E84E58300C5D419 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
 		924128331E84E58300C5D419 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		9241283D1E84E58300C5D419 /* SLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTestViewController.h; sourceTree = "<group>"; };
@@ -287,6 +292,9 @@
 				9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */,
 				9237B9061E8F509E00D34801 /* SLRecommendTagViewController.h */,
 				9237B9071E8F509E00D34801 /* SLRecommendTagViewController.m */,
+				9237B9091E8F5DAD00D34801 /* SLCommentViewController.h */,
+				9237B90A1E8F5DAD00D34801 /* SLCommentViewController.m */,
+				9237B90B1E8F5DAD00D34801 /* SLCommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -760,6 +768,7 @@
 				92F6475A1E8E843C0021F3BD /* SLTopicVoiceView.xib in Resources */,
 				929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */,
 				92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */,
+				9237B90D1E8F5DAD00D34801 /* SLCommentViewController.xib in Resources */,
 				9237B9021E8F4F2900D34801 /* SLRecommendTagCell.xib in Resources */,
 				92F647551E8E84000021F3BD /* SLTopicVideoView.xib in Resources */,
 			);
@@ -928,6 +937,7 @@
 				924128511E84F30400C5D419 /* SLFollowViewController.m in Sources */,
 				928315D51E8D4743003CB724 /* SLTitleButton.m in Sources */,
 				92F647451E8E5ED80021F3BD /* SLExtensionConfig.m in Sources */,
+				9237B90C1E8F5DAD00D34801 /* SLCommentViewController.m in Sources */,
 				92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */,
 				9237B8F21E8F481D00D34801 /* UIImageView+SLCircleImage.m in Sources */,
 				92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */,

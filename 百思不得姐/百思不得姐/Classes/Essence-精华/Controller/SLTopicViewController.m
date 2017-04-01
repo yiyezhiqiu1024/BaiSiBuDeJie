@@ -15,6 +15,7 @@
 #import "SLRefreshFooter.h"
 #import "SLTopicCell.h"
 #import "SLNewViewController.h"
+#import "SLCommentViewController.h"
 
 @interface SLTopicViewController ()
 /** 所有的帖子数据 */
@@ -192,5 +193,12 @@ static NSString * const SLTopicCellId = @"topic";
 {
 #pragma mark - 根据SLTopic模型数据计算出cell具体的高度, 并且返回
     return self.topics[indexPath.row].cellHeight;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SLCommentViewController *comment = [[SLCommentViewController alloc] init];
+    [self.navigationController pushViewController:comment animated:YES];
 }
 @end
