@@ -24,6 +24,10 @@
 #import "UIImageView+SLCircleImage.h"
 #import "UIImage+SLCircleImage.h"
 
+/**** weak/strongOBJ ****/
+#define SLWeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+#define SLStrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
+
 /*** 当前系统版本判断 ***/
 #define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
 

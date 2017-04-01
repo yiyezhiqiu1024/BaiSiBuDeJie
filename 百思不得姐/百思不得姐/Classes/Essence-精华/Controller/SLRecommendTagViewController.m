@@ -63,15 +63,16 @@ static NSString * const SLRecommendTagCellId = @"recommendTag";
     params[@"action"] = @"sub";
     params[@"c"] = @"topic";
     
-    __weak typeof(self) weakSelf = self;
+    @SLWeakObj(self)
     
     // 发送请求
     [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        @SLStrongObj(self)
         // 字典数组 -> 模型数组
-        weakSelf.recommendTags = [SLRecommendTag mj_objectArrayWithKeyValuesArray:responseObject];
+        self.recommendTags = [SLRecommendTag mj_objectArrayWithKeyValuesArray:responseObject];
         
         // 刷新
-        [weakSelf.tableView reloadData];
+        [self.tableView reloadData];
         
         // 去除HUD
         [SVProgressHUD dismiss];
