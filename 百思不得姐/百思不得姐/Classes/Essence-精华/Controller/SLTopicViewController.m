@@ -14,6 +14,7 @@
 #import "SLRefreshHeader.h"
 #import "SLRefreshFooter.h"
 #import "SLTopicCell.h"
+#import "SLNewViewController.h"
 
 @interface SLTopicViewController ()
 /** 所有的帖子数据 */
@@ -71,6 +72,14 @@ static NSString * const SLTopicCellId = @"topic";
     self.tableView.mj_footer = [SLRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 
+- (NSString *)aParam
+{
+    if (self.parentViewController.class == [SLNewViewController class]) {
+        return @"newlist";
+    }
+    return @"list";
+}
+
 #pragma mark - 数据加载
 - (void)loadNewTopics
 {
@@ -85,7 +94,7 @@ static NSString * const SLTopicCellId = @"topic";
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.aParam;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     
@@ -124,7 +133,7 @@ static NSString * const SLTopicCellId = @"topic";
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.aParam;
     params[@"c"] = @"data";
     params[@"maxtime"] = self.maxtime;
     params[@"type"] = @(self.type);
