@@ -28,12 +28,14 @@
         params[@"a"] = @"square";
         params[@"c"] = @"topic";
         
+        __weak typeof(self) weakSelf = self;
+        
         // 请求
         [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             // 字典数组 -> 模型数组
             NSArray *squares = [SLMeSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
             // 根据模型数据创建对应的控件
-            [self createSquares:squares];
+            [weakSelf createSquares:squares];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             SLLog(@"请求失败 - %@", error);
         }];

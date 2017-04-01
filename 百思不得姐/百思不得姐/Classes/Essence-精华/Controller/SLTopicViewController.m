@@ -98,19 +98,21 @@ static NSString * const SLTopicCellId = @"topic";
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     
+    __weak typeof(self) weakSelf = self;
+    
     // 发送请求
     [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         // 存储maxtime(方便用来加载下一页数据)
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
         
         // 字典数组 -> 模型数组
-        self.topics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        weakSelf.topics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         // 刷新表格
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
         
         // 让[刷新控件]结束刷新
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (error.code == NSURLErrorCancelled) {
             // 取消了任务
@@ -120,7 +122,7 @@ static NSString * const SLTopicCellId = @"topic";
         SLLog(@"请求失败 - %@", error);
         
         // 让[刷新控件]结束刷新
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -138,25 +140,26 @@ static NSString * const SLTopicCellId = @"topic";
     params[@"maxtime"] = self.maxtime;
     params[@"type"] = @(self.type);
     
+    __weak typeof(self) weakSelf = self;
     // 发送请求
     [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         // 存储这页对应的maxtime
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
         
         // 字典数组 -> 模型数组
         NSArray<SLTopic *> *moreTopics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        [self.topics addObjectsFromArray:moreTopics];
+        [weakSelf.topics addObjectsFromArray:moreTopics];
         
         // 刷新表格
-        [self.tableView reloadData];
+        [weakSelf.tableView reloadData];
         
         // 让[刷新控件]结束刷新
-        [self.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         SLLog(@"请求失败 - %@", error);
         
         // 让[刷新控件]结束刷新
-        [self.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
 
