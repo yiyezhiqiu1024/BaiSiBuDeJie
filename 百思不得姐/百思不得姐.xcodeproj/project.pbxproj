@@ -11,6 +11,8 @@
 		4D7E9DB03BEC1D10031C5CF8 /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57885D07A160A230047B670 /* libPods-百思不得姐.a */; };
 		9237B8E01E8F304300D34801 /* SLSeeBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */; };
 		9237B8E11E8F304300D34801 /* SLSeeBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */; };
+		9237B8F11E8F481D00D34801 /* UIImage+SLCircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8EE1E8F481D00D34801 /* UIImage+SLCircleImage.m */; };
+		9237B8F21E8F481D00D34801 /* UIImageView+SLCircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8F01E8F481D00D34801 /* UIImageView+SLCircleImage.m */; };
 		924128441E84E58300C5D419 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128331E84E58300C5D419 /* SLTabBarController.m */; };
 		924128461E84E58300C5D419 /* SLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241283E1E84E58300C5D419 /* SLTestViewController.m */; };
 		924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128421E84E58300C5D419 /* UIView+SLExtension.m */; };
@@ -94,6 +96,10 @@
 		9237B8DD1E8F304300D34801 /* SLSeeBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSeeBigViewController.h; sourceTree = "<group>"; };
 		9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSeeBigViewController.m; sourceTree = "<group>"; };
 		9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSeeBigViewController.xib; sourceTree = "<group>"; };
+		9237B8ED1E8F481D00D34801 /* UIImage+SLCircleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SLCircleImage.h"; sourceTree = "<group>"; };
+		9237B8EE1E8F481D00D34801 /* UIImage+SLCircleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SLCircleImage.m"; sourceTree = "<group>"; };
+		9237B8EF1E8F481D00D34801 /* UIImageView+SLCircleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SLCircleImage.h"; sourceTree = "<group>"; };
+		9237B8F01E8F481D00D34801 /* UIImageView+SLCircleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SLCircleImage.m"; sourceTree = "<group>"; };
 		924128321E84E58300C5D419 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
 		924128331E84E58300C5D419 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		9241283D1E84E58300C5D419 /* SLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTestViewController.h; sourceTree = "<group>"; };
@@ -430,6 +436,10 @@
 		924128401E84E58300C5D419 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				9237B8ED1E8F481D00D34801 /* UIImage+SLCircleImage.h */,
+				9237B8EE1E8F481D00D34801 /* UIImage+SLCircleImage.m */,
+				9237B8EF1E8F481D00D34801 /* UIImageView+SLCircleImage.h */,
+				9237B8F01E8F481D00D34801 /* UIImageView+SLCircleImage.m */,
 				924CA93F1E88FA17006DACBA /* UITextField+SLExtension.h */,
 				924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */,
 				924128411E84E58300C5D419 /* UIView+SLExtension.h */,
@@ -900,6 +910,7 @@
 				928315D51E8D4743003CB724 /* SLTitleButton.m in Sources */,
 				92F647451E8E5ED80021F3BD /* SLExtensionConfig.m in Sources */,
 				92AF3A4A1E8BF7E500D6368A /* SLMeFooterView.m in Sources */,
+				9237B8F21E8F481D00D34801 /* UIImageView+SLCircleImage.m in Sources */,
 				92AF3A471E8BF7B600D6368A /* GlobalConst.m in Sources */,
 				92F3F86C1E8E1F4D0044FFE9 /* SLTopic.m in Sources */,
 				92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */,
@@ -914,6 +925,7 @@
 				924128461E84E58300C5D419 /* SLTestViewController.m in Sources */,
 				928316111E8D508F003CB724 /* SLVideoViewController.m in Sources */,
 				928316101E8D508F003CB724 /* SLPictureViewController.m in Sources */,
+				9237B8F11E8F481D00D34801 /* UIImage+SLCircleImage.m in Sources */,
 				9237B8E01E8F304300D34801 /* SLSeeBigViewController.m in Sources */,
 				92F6474E1E8E7C910021F3BD /* SLTopicPictureView.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,

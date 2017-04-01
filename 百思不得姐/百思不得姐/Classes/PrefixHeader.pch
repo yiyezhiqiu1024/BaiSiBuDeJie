@@ -21,6 +21,8 @@
 #import "GlobalConst.h"
 #import "NSDate+SLExtension.h"
 #import "NSCalendar+SLCurrentCalendar.h"
+#import "UIImageView+SLCircleImage.h"
+#import "UIImage+SLCircleImage.h"
 
 /*** 当前系统版本判断 ***/
 #define iOS(version) ([UIDevice currentDevice].systemVersion.doubleValue >= (version))
