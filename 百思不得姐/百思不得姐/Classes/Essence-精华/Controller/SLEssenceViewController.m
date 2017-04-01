@@ -13,6 +13,7 @@
 #import "SLVoiceViewController.h"
 #import "SLPictureViewController.h"
 #import "SLWordViewController.h"
+#import "SLRecommendTagViewController.h"
 
 @interface SLEssenceViewController () <UIScrollViewDelegate>
 /** 当前选中的标题按钮 */
@@ -178,7 +179,8 @@
 
 - (void)tagClick
 {
-    SLLogFunc
+    SLRecommendTagViewController *tag = [[SLRecommendTagViewController alloc] init];
+    [self.navigationController pushViewController:tag animated:YES];
 }
 
 #pragma mark - <UIScrollViewDelegate>

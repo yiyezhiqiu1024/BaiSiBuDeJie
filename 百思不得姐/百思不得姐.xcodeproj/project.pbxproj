@@ -13,6 +13,10 @@
 		9237B8E11E8F304300D34801 /* SLSeeBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */; };
 		9237B8F11E8F481D00D34801 /* UIImage+SLCircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8EE1E8F481D00D34801 /* UIImage+SLCircleImage.m */; };
 		9237B8F21E8F481D00D34801 /* UIImageView+SLCircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8F01E8F481D00D34801 /* UIImageView+SLCircleImage.m */; };
+		9237B9011E8F4F2900D34801 /* SLRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8FF1E8F4F2900D34801 /* SLRecommendTagCell.m */; };
+		9237B9021E8F4F2900D34801 /* SLRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B9001E8F4F2900D34801 /* SLRecommendTagCell.xib */; };
+		9237B9051E8F509500D34801 /* SLRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B9041E8F509500D34801 /* SLRecommendTag.m */; };
+		9237B9081E8F509E00D34801 /* SLRecommendTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B9071E8F509E00D34801 /* SLRecommendTagViewController.m */; };
 		924128441E84E58300C5D419 /* SLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128331E84E58300C5D419 /* SLTabBarController.m */; };
 		924128461E84E58300C5D419 /* SLTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241283E1E84E58300C5D419 /* SLTestViewController.m */; };
 		924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128421E84E58300C5D419 /* UIView+SLExtension.m */; };
@@ -100,6 +104,13 @@
 		9237B8EE1E8F481D00D34801 /* UIImage+SLCircleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SLCircleImage.m"; sourceTree = "<group>"; };
 		9237B8EF1E8F481D00D34801 /* UIImageView+SLCircleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SLCircleImage.h"; sourceTree = "<group>"; };
 		9237B8F01E8F481D00D34801 /* UIImageView+SLCircleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SLCircleImage.m"; sourceTree = "<group>"; };
+		9237B8FE1E8F4F2900D34801 /* SLRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRecommendTagCell.h; sourceTree = "<group>"; };
+		9237B8FF1E8F4F2900D34801 /* SLRecommendTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRecommendTagCell.m; sourceTree = "<group>"; };
+		9237B9001E8F4F2900D34801 /* SLRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLRecommendTagCell.xib; sourceTree = "<group>"; };
+		9237B9031E8F509500D34801 /* SLRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRecommendTag.h; sourceTree = "<group>"; };
+		9237B9041E8F509500D34801 /* SLRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRecommendTag.m; sourceTree = "<group>"; };
+		9237B9061E8F509E00D34801 /* SLRecommendTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRecommendTagViewController.h; sourceTree = "<group>"; };
+		9237B9071E8F509E00D34801 /* SLRecommendTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRecommendTagViewController.m; sourceTree = "<group>"; };
 		924128321E84E58300C5D419 /* SLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTabBarController.h; sourceTree = "<group>"; };
 		924128331E84E58300C5D419 /* SLTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBarController.m; sourceTree = "<group>"; };
 		9241283D1E84E58300C5D419 /* SLTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLTestViewController.h; sourceTree = "<group>"; };
@@ -274,6 +285,8 @@
 				9237B8DD1E8F304300D34801 /* SLSeeBigViewController.h */,
 				9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */,
 				9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */,
+				9237B9061E8F509E00D34801 /* SLRecommendTagViewController.h */,
+				9237B9071E8F509E00D34801 /* SLRecommendTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -287,6 +300,8 @@
 				92F647471E8E5F450021F3BD /* SLComment.m */,
 				92F647491E8E5F590021F3BD /* SLUser.h */,
 				92F6474A1E8E5F590021F3BD /* SLUser.m */,
+				9237B9031E8F509500D34801 /* SLRecommendTag.h */,
+				9237B9041E8F509500D34801 /* SLRecommendTag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +314,9 @@
 				92F647351E8E44190021F3BD /* SLTopicCell.h */,
 				92F647361E8E44190021F3BD /* SLTopicCell.m */,
 				92F647371E8E44190021F3BD /* SLTopicCell.xib */,
+				9237B8FE1E8F4F2900D34801 /* SLRecommendTagCell.h */,
+				9237B8FF1E8F4F2900D34801 /* SLRecommendTagCell.m */,
+				9237B9001E8F4F2900D34801 /* SLRecommendTagCell.xib */,
 				92F6474C1E8E7C910021F3BD /* SLTopicPictureView.h */,
 				92F6474D1E8E7C910021F3BD /* SLTopicPictureView.m */,
 				92F6474F1E8E7CA10021F3BD /* SLTopicPictureView.xib */,
@@ -742,6 +760,7 @@
 				92F6475A1E8E843C0021F3BD /* SLTopicVoiceView.xib in Resources */,
 				929A35111E865D87004CCA98 /* SLFollowViewController.xib in Resources */,
 				92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */,
+				9237B9021E8F4F2900D34801 /* SLRecommendTagCell.xib in Resources */,
 				92F647551E8E84000021F3BD /* SLTopicVideoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -915,6 +934,8 @@
 				92F3F86C1E8E1F4D0044FFE9 /* SLTopic.m in Sources */,
 				92AEA8531E850247001E6159 /* UIBarButtonItem+SLExtension.m in Sources */,
 				92F6475D1E8E89E00021F3BD /* SLTopicViewController.m in Sources */,
+				9237B9081E8F509E00D34801 /* SLRecommendTagViewController.m in Sources */,
+				9237B9051E8F509500D34801 /* SLRecommendTag.m in Sources */,
 				92F647581E8E84280021F3BD /* SLTopicVoiceView.m in Sources */,
 				92AEA8561E8502B3001E6159 /* SLBaseViewController.m in Sources */,
 				92AF3A4D1E8BF81E00D6368A /* SLMeSquare.m in Sources */,
@@ -928,6 +949,7 @@
 				9237B8F11E8F481D00D34801 /* UIImage+SLCircleImage.m in Sources */,
 				9237B8E01E8F304300D34801 /* SLSeeBigViewController.m in Sources */,
 				92F6474E1E8E7C910021F3BD /* SLTopicPictureView.m in Sources */,
+				9237B9011E8F4F2900D34801 /* SLRecommendTagCell.m in Sources */,
 				924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */,
 				92EB8EA61E87AE3100A2B585 /* SLLoginRegisterTextField.m in Sources */,
 				92F647381E8E44190021F3BD /* SLTopicCell.m in Sources */,
