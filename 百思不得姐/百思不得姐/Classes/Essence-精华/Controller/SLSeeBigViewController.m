@@ -11,6 +11,11 @@
 #import <UIImageView+WebCache.h>
 #import "SVProgressHUD.h"
 
+// #import <AssetsLibrary/AssetsLibrary.h> // iOS9开始废弃
+#import <Photos/Photos.h> // iOS9开始推荐
+
+#import <SVProgressHUD.h>
+
 @interface SLSeeBigViewController () <UIScrollViewDelegate>
 /** 图片控件 */
 @property (nonatomic, weak) UIImageView *imageView;
@@ -18,6 +23,7 @@
 
 @implementation SLSeeBigViewController
 
+#pragma mark - 系统回调
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -63,6 +69,38 @@
 }
 
 - (IBAction)save {
+    /*
+     PHAuthorizationStatusNotDetermined,     用户还没有做出选择
+     PHAuthorizationStatusDenied,            用户拒绝当前应用访问相册(用户当初点击了"不允许")
+     PHAuthorizationStatusAuthorized         用户允许当前应用访问相册(用户当初点击了"好")
+     PHAuthorizationStatusRestricted,        因为家长控制, 导致应用无法方法相册(跟用户的选择没有关系)
+     */
+    
+    // 判断授权状态
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusRestricted) { // 因为家长控制, 导致应用无法方法相册(跟用户的选择没有关系)
+        [SVProgressHUD showErrorWithStatus:@"因为系统原因, 无法访问相册"];
+    } else if (status == PHAuthorizationStatusDenied) { // 用户拒绝当前应用访问相册(用户当初点击了"不允许")
+        SLLog(@"提醒用户去[设置-隐私-照片-xxx]打开访问开关");
+    } else if (status == PHAuthorizationStatusAuthorized) { // 用户允许当前应用访问相册(用户当初点击了"好")
+
+    } else if (status == PHAuthorizationStatusNotDetermined) { // 用户还没有做出选择
+        // 弹框请求用户授权
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) { // 用户点击了好
+
+            }
+        }];
+    }
+}
+
+
+#pragma mark - 自定义方法
+/**
+ *  保存图片到相机胶卷
+ */
+- (void)savedPhotosAlbum
+{
     // UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(a:b:c:), nil);
     UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
