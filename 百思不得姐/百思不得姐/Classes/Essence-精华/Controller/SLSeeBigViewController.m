@@ -23,6 +23,8 @@
 
 @implementation SLSeeBigViewController
 
+static NSString * SLAssetCollectionTitle = @"百思不得姐";
+
 #pragma mark - 系统回调
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,17 +85,76 @@
     } else if (status == PHAuthorizationStatusDenied) { // 用户拒绝当前应用访问相册(用户当初点击了"不允许")
         SLLog(@"提醒用户去[设置-隐私-照片-xxx]打开访问开关");
     } else if (status == PHAuthorizationStatusAuthorized) { // 用户允许当前应用访问相册(用户当初点击了"好")
-
+        [self saveImage];
     } else if (status == PHAuthorizationStatusNotDetermined) { // 用户还没有做出选择
         // 弹框请求用户授权
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
             if (status == PHAuthorizationStatusAuthorized) { // 用户点击了好
-
+                [self saveImage];
             }
         }];
     }
 }
 
+- (void)saveImage
+{
+    // PHAsset : 一个资源, 比如一张图片\一段视频
+    // PHAssetCollection : 一个相簿
+    
+    // PHAssetCollection的标识, 利用这个标识可以找到对应的PHAssetCollection对象(相簿对象)
+    __block NSString *assetCollectionLocalIdentifier = nil;
+    
+    // PHAsset的标识, 利用这个标识可以找到对应的PHAsset对象(图片对象)
+    __block NSString *assetLocalIdentifier = nil;
+    
+    // 如果想对"相册"进行修改(增删改), 那么修改代码必须放在[PHPhotoLibrary sharedPhotoLibrary]的performChanges方法的block中
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        // 1.保存图片A到"相机胶卷"中
+        // 创建图片的请求
+        assetLocalIdentifier = [PHAssetCreationRequest creationRequestForAssetFromImage:self.imageView.image].placeholderForCreatedAsset.localIdentifier;
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (success == NO) {
+            SLLog(@"保存[图片]到[相机胶卷]失败!失败信息-%@", error);
+            return;
+        }
+        
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            // 2.创建"相簿"
+            // 创建相簿的请求
+            assetCollectionLocalIdentifier = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:SLAssetCollectionTitle].placeholderForCreatedAssetCollection.localIdentifier;
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            if (success == NO) {
+                SLLog(@"创建相簿失败!失败信息-%@", error);
+                return;
+            }
+            
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                // 3.添加"相机胶卷"中的图片A到新建的"相簿"D中
+                
+                // 获得相簿
+                PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].lastObject;
+                
+                // 获得图片
+                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].lastObject;
+                
+                // 添加图片到相簿中的请求
+                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                
+                // 添加图片到相簿
+                [request addAssets:@[asset]];
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                if (success == NO) {
+                    SLLog(@"失败信息-%@", error);
+                    [SVProgressHUD showErrorWithStatus:@"保存[图片]到[相簿]失败"];
+                } else {
+                    [SVProgressHUD showSuccessWithStatus:@"成功保存[图片]到[相簿]"];
+                }
+            }];
+        }];
+        
+    }];
+
+}
 
 #pragma mark - 自定义方法
 /**
@@ -130,5 +191,4 @@
 {
     return self.imageView;
 }
-
 @end
