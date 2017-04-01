@@ -128,32 +128,73 @@ static NSString * SLAssetCollectionTitle = @"百思不得姐";
                 return;
             }
             
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                // 3.添加"相机胶卷"中的图片A到新建的"相簿"D中
-                
-                // 获得相簿
-                PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].lastObject;
-                
-                // 获得图片
-                PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].lastObject;
-                
-                // 添加图片到相簿中的请求
-                PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
-                
-                // 添加图片到相簿
-                [request addAssets:@[asset]];
-            } completionHandler:^(BOOL success, NSError * _Nullable error) {
-                if (success == NO) {
-                    SLLog(@"失败信息-%@", error);
-                    [SVProgressHUD showErrorWithStatus:@"保存[图片]到[相簿]失败"];
-                } else {
-                    [SVProgressHUD showSuccessWithStatus:@"成功保存[图片]到[相簿]"];
-                }
-            }];
+            // 获得曾经创建过的相簿
+            PHAssetCollection *createdAssetCollection = [self createdAssetCollection];
+            if (createdAssetCollection) { // 曾经创建过相簿
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    // 3.添加"相机胶卷"中的图片A到"相簿"D中
+                    
+                    // 获得图片
+                    PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].lastObject;
+                    
+                    // 添加图片到相簿中的请求
+                    PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdAssetCollection];
+                    
+                    // 添加图片到相簿
+                    [request addAssets:@[asset]];
+                } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                    if (success == NO) {
+                        SLLog(@"失败信息-%@", error);
+                        [SVProgressHUD showErrorWithStatus:@"保存[图片]到[相簿]失败"];
+                    } else {
+                        [SVProgressHUD showSuccessWithStatus:@"成功保存[图片]到[相簿]"];
+                    }
+                }];
+            } else { // 没有创建过相簿
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    // 3.添加"相机胶卷"中的图片A到新建的"相簿"D中
+                    
+                    // 获得相簿
+                    PHAssetCollection *assetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionLocalIdentifier] options:nil].lastObject;
+                    
+                    // 获得图片
+                    PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[assetLocalIdentifier] options:nil].lastObject;
+                    
+                    // 添加图片到相簿中的请求
+                    PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                    
+                    // 添加图片到相簿
+                    [request addAssets:@[asset]];
+                } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                    if (success == NO) {
+                        SLLog(@"失败信息-%@", error);
+                        [SVProgressHUD showErrorWithStatus:@"保存[图片]到[相簿]失败"];
+                    } else {
+                        [SVProgressHUD showSuccessWithStatus:@"成功保存[图片]到[相簿]"];
+                    }
+                }];
+            }
+            
         }];
         
     }];
 
+}
+
+/**
+ *  获得曾经创建过的相簿
+ */
+- (PHAssetCollection *)createdAssetCollection
+{
+    PHFetchResult<PHAssetCollection *> *assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    
+    for (PHAssetCollection *assetCollection in assetCollections) {
+        if ([assetCollection.localizedTitle isEqualToString:SLAssetCollectionTitle]) {
+            return assetCollection;
+        }
+    }
+    
+    return nil;
 }
 
 #pragma mark - 自定义方法
