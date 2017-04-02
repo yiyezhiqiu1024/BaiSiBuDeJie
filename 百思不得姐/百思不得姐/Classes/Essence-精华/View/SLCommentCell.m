@@ -29,13 +29,7 @@
 - (void)setComment:(SLComment *)comment
 {
     _comment = comment;
-    
-//    if (arc4random_uniform(100) > 50) {
-//        comment.voicetime = arc4random_uniform(60);
-//        comment.voiceuri = @"http://123.mp3";
-//        comment.content = nil;
-//    }
-    
+        
     self.usernameLabel.text = comment.user.username;
     self.contentLabel.text = comment.content;
     

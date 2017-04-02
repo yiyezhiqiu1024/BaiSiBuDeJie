@@ -15,6 +15,8 @@
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         self.textLabel.textColor = [UIColor darkGrayColor];
         
+        self.contentView.backgroundColor = SLCommonBgColor;
+        
 //        UISwitch *s = [[UISwitch alloc] init];
 //        s.xmg_x = 200;
 //        [self.contentView addSubview:s];

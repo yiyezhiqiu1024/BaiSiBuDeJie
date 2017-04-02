@@ -101,7 +101,12 @@ static NSCalendar *calendar_;
         // 最热评论-标题
         _cellHeight += 20;
         // 最热评论-内容
-        NSString *topCmtContent = [NSString stringWithFormat:@"%@ : %@", self.top_cmt.user.username, self.top_cmt.content];
+        NSString *content = self.top_cmt.content;
+        if (self.top_cmt.voiceuri.length) {
+            content = @"[语音评论]";
+        }
+        NSString *topCmtContent = [NSString stringWithFormat:@"%@ : %@", self.top_cmt.user.username, content];
+
         // CGSize topCmtContentSize = [topCmtContent sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:textMaxSize];
         CGSize topCmtContentSize = [topCmtContent boundingRectWithSize:textMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size;
         _cellHeight += topCmtContentSize.height + SLMargin;

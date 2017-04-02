@@ -16,7 +16,8 @@
     
     self.stateLabel.textColor = SLCommonBgColor;
     [self setTitle:@"正在加载中..." forState:MJRefreshStateRefreshing];
-
+    
+    [self setTitle:@"没有数据啦,不要再上拉了" forState:MJRefreshStateNoMoreData];
     
 //    [self addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
     

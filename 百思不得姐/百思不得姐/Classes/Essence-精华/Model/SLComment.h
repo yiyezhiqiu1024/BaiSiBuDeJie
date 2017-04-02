@@ -10,6 +10,8 @@
 @class SLUser;
 
 @interface SLComment : NSObject
+/** id */
+@property (nonatomic, copy) NSString *ID;
 /** 内容 */
 @property (nonatomic, copy) NSString *content;
 /** 用户(发表评论的人) */

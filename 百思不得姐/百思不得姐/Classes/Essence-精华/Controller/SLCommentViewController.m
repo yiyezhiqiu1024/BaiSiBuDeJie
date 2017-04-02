@@ -15,6 +15,7 @@
 #import <AFNetworking.h>
 #import "SLCommentSectionHeader.h"
 #import "SLCommentCell.h"
+#import "SLTopicCell.h"
 
 @interface SLCommentViewController () <UITableViewDataSource, UITableViewDelegate>
 /** 工具条底部约束 */
@@ -32,6 +33,9 @@
 
 // 对象属性名不能以new开头
 // @property (nonatomic, strong) NSMutableArray<SLComment *> *newComments;
+
+/** 最热评论 */
+@property (nonatomic, strong) SLComment *savedTopCmt;
 @end
 
 @implementation SLCommentViewController
@@ -59,11 +63,16 @@ static NSString * const SLSectionHeaderlId = @"header";
     
     [self setupRefresh];
     
+    [self setupHeader];
+    
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    self.topic.top_cmt = self.savedTopCmt;
+    self.topic.cellHeight = 0;
 }
 
 #pragma mark - 设置UI
@@ -107,6 +116,29 @@ static NSString * const SLSectionHeaderlId = @"header";
 // -[__NSArray0 objectForKeyedSubscript:]: unrecognized selector sent to instance 0x7fb738c01870
 // 错误地将NSArray当做NSDictionary来使用了
 
+- (void)setupHeader
+{
+    // 处理模型数据
+    self.savedTopCmt = self.topic.top_cmt;
+    self.topic.top_cmt = nil;
+    self.topic.cellHeight = 0;
+    
+    // 创建header
+    UIView *header = [[UIView alloc] init];
+    
+    // 添加cell到header
+    SLTopicCell *cell = [SLTopicCell sl_viewFromXib];
+    cell.topic = self.topic;
+    cell.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.topic.cellHeight);
+    [header addSubview:cell];
+    
+    // 设置header的高度
+    header.sl_height = cell.sl_height + SLMargin * 2;
+    
+    // 设置header
+    self.tableView.tableHeaderView = header;
+}
+
 #pragma mark - 数据加载
 - (void)loadNewComments
 {
@@ -141,6 +173,14 @@ static NSString * const SLSectionHeaderlId = @"header";
         
         // 让[刷新控件]结束刷新
         [self.tableView.mj_header endRefreshing];
+        
+        
+        int total = [responseObject[@"total"] intValue];
+        if (self.lastComments.count == total) { // 全部加载完毕
+            // 隐藏
+            self.tableView.mj_footer.hidden = YES;
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         @SLStrongObj(self)
         // 让[刷新控件]结束刷新
@@ -150,19 +190,52 @@ static NSString * const SLSectionHeaderlId = @"header";
 
 - (void)loadMoreComments
 {
+    // 取消所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
+    // 参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"lastcid"] = self.lastComments.lastObject.ID;
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // 发送请求
+    [self.manager GET:SLCommonURL parameters:params progress: nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [weakSelf.tableView.mj_footer endRefreshing];
+            return;
+        }
+        
+        // 字典数组 -> 模型数组
+        NSArray *moreComments = [SLComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [weakSelf.lastComments addObjectsFromArray:moreComments];
+        
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        int total = [responseObject[@"total"] intValue];
+        if (weakSelf.lastComments.count == total) { // 全部加载完毕
+            // 提示用户:没有更多数据
+            // [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+            weakSelf.tableView.mj_footer.hidden = YES;
+        } else { // 还没有加载完全
+            // 结束刷新
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 结束刷新
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+
 }
 
 #pragma mark - 监听
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
-    //    if (弹出) {
-    //        self.bottomMargin.constant = 键盘高度;
-    //    } else {
-    //        self.bottomMargin.constant = 0;
-    //    }
-    
-    // 修改约束
+     // 修改约束
     CGFloat keyboardY =  [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
     CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
     self.bottomMargin.constant = screenH - keyboardY;
@@ -177,11 +250,6 @@ static NSString * const SLSectionHeaderlId = @"header";
 #pragma mark - 数据源方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //    if (self.lastestComments.count && self.hotestComments.count) return 2;
-    //    if (self.lastestComments.count && self.hotestComments.count == 0) return 1;
-    //
-    //    return 0;
-    
     // 有最热评论 + 最新评论数据
     if (self.hotestComments.count) return 2;
     
@@ -194,18 +262,6 @@ static NSString * const SLSectionHeaderlId = @"header";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    // 第0组
-    //    if (section == 0) {
-    //        if (self.hotestComments.count) {
-    //            return self.hotestComments.count;
-    //        } else {
-    //            return self.lastestComments.count;
-    //        }
-    //    }
-    //
-    //    // 其他组 - section == 1
-    //    return self.lastestComments.count;
-    
     // 第0组 && 有最热评论数据
     if (section == 0 && self.hotestComments.count) {
         return self.hotestComments.count;
@@ -228,82 +284,7 @@ static NSString * const SLSectionHeaderlId = @"header";
     return cell;
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        return @"最热评论";
-//    }
-//
-//    // 其他情况
-//    return @"最新评论";
-//}
-
 #pragma mark - 代理方法
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UILabel *label = [[UILabel alloc] init];
-//    label.backgroundColor = tableView.backgroundColor;
-//    label.font = SLCommentSectionHeaderFont;
-//    label.textColor = [UIColor darkGrayColor];
-//
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        label.text = @"最热评论";
-//    } else { // 其他情况
-//        label.text = @"最新评论";
-//    }
-//
-//    return label;
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UIButton *button = [[UIButton alloc] init];
-//    button.backgroundColor = tableView.backgroundColor;
-//
-//    // 内边距
-//    button.contentEdgeInsets = UIEdgeInsetsMake(0, SLMargin, 0, 0);
-//    // button.titleEdgeInsets = UIEdgeInsetsMake(0, SLMargin, 0, 0);
-//    // 让按钮内部的内容, 在按钮中左对齐
-//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//
-//    button.titleLabel.font = SLCommentSectionHeaderFont;
-//
-//    // 让label的文字在label内部左对齐
-//    // button.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        [button setTitle:@"最热评论" forState:UIControlStateNormal];
-//    } else { // 其他情况
-//        [button setTitle:@"最新评论" forState:UIControlStateNormal];
-//    }
-//
-//    return button;
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    //    if (header == nil) {
-//    //        header = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:SLSectionHeaderlId];
-//    //        header.textLabel.textColor = [UIColor darkGrayColor];
-//    //    }
-//
-//
-//    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:SLSectionHeaderlId];
-//
-//    header.textLabel.textColor = [UIColor darkGrayColor];
-//    // 第0组 && 有最热评论数据
-//    if (section == 0 && self.hotestComments.count) {
-//        header.textLabel.text = @"最热评论";
-//    } else { // 其他情况
-//        header.textLabel.text = @"最新评论";
-//    }
-//
-//    return header;
-//}
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     SLCommentSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:SLSectionHeaderlId];
