@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SLCommentViewController">
             <connections>
                 <outlet property="bottomMargin" destination="88L-9q-V1j" id="OqF-3E-NRQ"/>
+                <outlet property="tableView" destination="dRJ-Ni-N5d" id="UFv-zY-k7v"/>
                 <outlet property="view" destination="iig-RX-8UX" id="GW6-mf-g4M"/>
             </connections>
         </placeholder>
@@ -20,6 +21,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
+                        <outlet property="dataSource" destination="-1" id="b6e-g9-5UC"/>
                         <outlet property="delegate" destination="-1" id="AqN-qa-huv"/>
                     </connections>
                 </tableView>
