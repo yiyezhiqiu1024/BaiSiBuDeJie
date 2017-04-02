@@ -15,3 +15,9 @@ CGFloat const SLSmallMargin = SLMargin * 0.5;
 
 /** 公共的URL */
 NSString * const SLCommonURL = @"http://api.budejie.com/api/api_open.php";
+
+/** SLUser - sex - male */
+NSString * const SLUserSexMale = @"m";
+
+/** SLUser - sex - female */
+NSString * const SLUserSexFemale = @"f";

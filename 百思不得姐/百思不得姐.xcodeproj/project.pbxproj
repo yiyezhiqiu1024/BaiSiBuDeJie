@@ -28,6 +28,9 @@
 		924128571E84F3E200C5D419 /* SLNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 924128561E84F3E200C5D419 /* SLNewViewController.m */; };
 		9241285B1E84F4D400C5D419 /* SLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9241285A1E84F4D400C5D419 /* SLTabBar.m */; };
 		924CA9411E88FA17006DACBA /* UITextField+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */; };
+		92508D851E90E2350077D49A /* SLCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92508D831E90E2350077D49A /* SLCommentCell.m */; };
+		92508D861E90E2350077D49A /* SLCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92508D841E90E2350077D49A /* SLCommentCell.xib */; };
+		92508D891E90E25F0077D49A /* SLCommentSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 92508D881E90E25F0077D49A /* SLCommentSectionHeader.m */; };
 		928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 928315CE1E8D0270003CB724 /* SLFileTool.m */; };
 		928315D21E8D0F4B003CB724 /* SLClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 928315D11E8D0F4B003CB724 /* SLClearCacheCell.m */; };
 		928315D51E8D4743003CB724 /* SLTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 928315D41E8D4743003CB724 /* SLTitleButton.m */; };
@@ -135,6 +138,11 @@
 		9241285A1E84F4D400C5D419 /* SLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBar.m; sourceTree = "<group>"; };
 		924CA93F1E88FA17006DACBA /* UITextField+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SLExtension.h"; sourceTree = "<group>"; };
 		924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SLExtension.m"; sourceTree = "<group>"; };
+		92508D821E90E2350077D49A /* SLCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCommentCell.h; sourceTree = "<group>"; };
+		92508D831E90E2350077D49A /* SLCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCommentCell.m; sourceTree = "<group>"; };
+		92508D841E90E2350077D49A /* SLCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLCommentCell.xib; sourceTree = "<group>"; };
+		92508D871E90E25F0077D49A /* SLCommentSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCommentSectionHeader.h; sourceTree = "<group>"; };
+		92508D881E90E25F0077D49A /* SLCommentSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCommentSectionHeader.m; sourceTree = "<group>"; };
 		928315CD1E8D0270003CB724 /* SLFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFileTool.h; sourceTree = "<group>"; };
 		928315CE1E8D0270003CB724 /* SLFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFileTool.m; sourceTree = "<group>"; };
 		928315D01E8D0F4B003CB724 /* SLClearCacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLClearCacheCell.h; sourceTree = "<group>"; };
@@ -325,6 +333,11 @@
 				9237B8FE1E8F4F2900D34801 /* SLRecommendTagCell.h */,
 				9237B8FF1E8F4F2900D34801 /* SLRecommendTagCell.m */,
 				9237B9001E8F4F2900D34801 /* SLRecommendTagCell.xib */,
+				92508D821E90E2350077D49A /* SLCommentCell.h */,
+				92508D831E90E2350077D49A /* SLCommentCell.m */,
+				92508D841E90E2350077D49A /* SLCommentCell.xib */,
+				92508D871E90E25F0077D49A /* SLCommentSectionHeader.h */,
+				92508D881E90E25F0077D49A /* SLCommentSectionHeader.m */,
 				92F6474C1E8E7C910021F3BD /* SLTopicPictureView.h */,
 				92F6474D1E8E7C910021F3BD /* SLTopicPictureView.m */,
 				92F6474F1E8E7CA10021F3BD /* SLTopicPictureView.xib */,
@@ -760,6 +773,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92508D861E90E2350077D49A /* SLCommentCell.xib in Resources */,
 				92AF3A5D1E8BFC0500D6368A /* SLWebViewController.xib in Resources */,
 				9237B8E11E8F304300D34801 /* SLSeeBigViewController.xib in Resources */,
 				929A35161E865E17004CCA98 /* SLLoginRegisterViewController.xib in Resources */,
@@ -924,6 +938,7 @@
 				928316131E8D508F003CB724 /* SLWordViewController.m in Sources */,
 				928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */,
 				92F647531E8E839D0021F3BD /* SLTopicVideoView.m in Sources */,
+				92508D851E90E2350077D49A /* SLCommentCell.m in Sources */,
 				92AEA85F1E850567001E6159 /* SLNavigationController.m in Sources */,
 				924128541E84F37B00C5D419 /* SLMeViewController.m in Sources */,
 				92F3F86F1E8E1FCE0044FFE9 /* SLRefreshHeader.m in Sources */,
@@ -931,6 +946,7 @@
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
 				928316121E8D508F003CB724 /* SLVoiceViewController.m in Sources */,
 				924128441E84E58300C5D419 /* SLTabBarController.m in Sources */,
+				92508D891E90E25F0077D49A /* SLCommentSectionHeader.m in Sources */,
 				929A35191E866179004CCA98 /* SLQuickLoginButton.m in Sources */,
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
 				929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */,

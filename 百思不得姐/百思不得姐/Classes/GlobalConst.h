@@ -16,3 +16,9 @@ UIKIT_EXTERN CGFloat const SLSmallMargin;
 
 /** 公共的URL */
 UIKIT_EXTERN NSString * const SLCommonURL;
+
+/** SLUser - sex - male */
+UIKIT_EXTERN NSString * const SLUserSexMale;
+
+/** SLUser - sex - female */
+UIKIT_EXTERN NSString * const SLUserSexFemale;

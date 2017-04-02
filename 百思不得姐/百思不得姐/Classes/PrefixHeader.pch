@@ -24,6 +24,9 @@
 #import "UIImageView+SLCircleImage.h"
 #import "UIImage+SLCircleImage.h"
 
+/*** 评论-头部控件-字体 ***/
+#define SLCommentSectionHeaderFont [UIFont systemFontOfSize:15]
+
 /**** weak/strongOBJ ****/
 #define SLWeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 #define SLStrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;

@@ -199,6 +199,7 @@ static NSString * const SLTopicCellId = @"topic";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SLCommentViewController *comment = [[SLCommentViewController alloc] init];
+    comment.topic = self.topics[indexPath.row];
     [self.navigationController pushViewController:comment animated:YES];
 }
 @end

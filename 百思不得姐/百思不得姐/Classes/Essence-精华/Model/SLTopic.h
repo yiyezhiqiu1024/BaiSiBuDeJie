@@ -25,6 +25,8 @@ typedef NS_ENUM(NSUInteger, SLTopicType) {
 @class SLComment;
 
 @interface SLTopic : NSObject
+/** id */
+@property (nonatomic, copy) NSString *ID;
 /** 用户的名字 */
 @property (nonatomic, copy) NSString *name;
 /** 用户的头像 */
