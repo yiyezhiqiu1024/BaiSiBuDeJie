@@ -11,19 +11,27 @@
 #import "SLTopWindow.h"
 
 @interface AppDelegate ()
+<UITabBarControllerDelegate>
 
 @end
 
 @implementation AppDelegate
 
-
+#pragma mark - <UITabBarControllerDelegate>
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    SLLogFunc
+}
+#pragma mark - <UIApplicationDelegate>
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 创建窗口
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
     // 设置根控制器
-    self.window.rootViewController = [[SLTabBarController alloc] init];
+    SLTabBarController *rootVc = [[SLTabBarController alloc] init];
+    rootVc.delegate = self;
+    self.window.rootViewController = rootVc;
     
     // 显示窗口
     [self.window makeKeyAndVisible];
