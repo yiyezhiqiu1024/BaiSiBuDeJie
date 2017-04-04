@@ -70,6 +70,9 @@
         
         // 增加索引
         tabBarButtonIndex++;
+        
+        UIControl *tabBarButton = (UIControl *)subview;
+        [tabBarButton addTarget:self action:@selector(tabBarButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     
     /**** 设置中间的发布按钮的frame ****/
@@ -81,6 +84,11 @@
 
 #pragma mark - 监听
 - (void)publishClick
+{
+    SLLogFunc
+}
+
+- (void)tabBarButtonClick
 {
     SLLogFunc
 }
