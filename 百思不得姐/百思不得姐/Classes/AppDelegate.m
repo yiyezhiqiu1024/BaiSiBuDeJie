@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SLTabBarController.h"
+#import "SLTopWindow.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +30,9 @@
     
     // 显示窗口
     [self.window makeKeyAndVisible];
+    
+    // 添加一个最高级别的顶层
+    [SLTopWindow show];
     return YES;
 }
 
