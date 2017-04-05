@@ -159,6 +159,12 @@
 #pragma mark - 监听
 - (void)titleClick:(SLTitleButton *)titleButton
 {
+    // 某个标题按钮被重复点击
+    if (titleButton == self.selectedTitleButton) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:SLTitleButtonDidRepeatClickNotification object:nil];
+    }
+
+    
     // 控制按钮状态
     self.selectedTitleButton.selected = NO;
     titleButton.selected = YES;

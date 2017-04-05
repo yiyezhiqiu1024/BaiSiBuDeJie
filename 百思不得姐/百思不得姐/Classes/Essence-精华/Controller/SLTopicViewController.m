@@ -65,6 +65,8 @@ static NSString * const SLTopicCellId = @"topic";
 - (void)setupNote
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:SLTabBarButtonDidRepeatClickNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:SLTitleButtonDidRepeatClickNotification object:nil];
 }
 
 - (void)setupTable
@@ -108,6 +110,14 @@ static NSString * const SLTopicCellId = @"topic";
     
     // 进行下拉刷新
     [self.tableView.mj_header beginRefreshing];
+}
+
+/**
+ *  监听标题按钮的重复点击
+ */
+- (void)titleButtonDidRepeatClick
+{
+    [self tabBarButtonDidRepeatClick];
 }
 
 #pragma mark - 数据加载

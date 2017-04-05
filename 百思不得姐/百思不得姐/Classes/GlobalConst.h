@@ -26,4 +26,6 @@ UIKIT_EXTERN NSString * const SLUserSexFemale;
 /*** 通知 ***/
 /** TabBar按钮被重复点击的通知 */
 UIKIT_EXTERN NSString * const SLTabBarButtonDidRepeatClickNotification;
+/** 标题按钮被重复点击的通知 */
+UIKIT_EXTERN NSString * const SLTitleButtonDidRepeatClickNotification;
 
