@@ -53,6 +53,18 @@ static NSString * const SLTopicCellId = @"topic";
     
     [self setupRefresh];
     [self setupTable];
+    [self setupNote];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - 基本设置
+- (void)setupNote
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:SLTabBarButtonDidRepeatClickNotification object:nil];
 }
 
 - (void)setupTable
@@ -79,6 +91,23 @@ static NSString * const SLTopicCellId = @"topic";
         return @"newlist";
     }
     return @"list";
+}
+
+#pragma mark - 监听
+/**
+ *  监听TabBar按钮的重复点击
+ */
+- (void)tabBarButtonDidRepeatClick
+{
+    
+    // 如果当前控制器的view不在window上，就直接返回,否则这个方法调用五次
+    if (self.view.window == nil) return;
+    
+    // 如果当前控制器的view跟window没有重叠，就直接返回
+    if (![self.view sl_intersectWithView:self.view.window]) return;
+    
+    // 进行下拉刷新
+    [self.tableView.mj_header beginRefreshing];
 }
 
 #pragma mark - 数据加载

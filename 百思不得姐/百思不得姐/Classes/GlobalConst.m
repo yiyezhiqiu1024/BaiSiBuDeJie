@@ -21,3 +21,7 @@ NSString * const SLUserSexMale = @"m";
 
 /** SLUser - sex - female */
 NSString * const SLUserSexFemale = @"f";
+
+/*** 通知 ***/
+/** TabBar按钮被重复点击的通知 */
+NSString * const SLTabBarButtonDidRepeatClickNotification = @"SLTabBarButtonDidRepeatClickNotification";

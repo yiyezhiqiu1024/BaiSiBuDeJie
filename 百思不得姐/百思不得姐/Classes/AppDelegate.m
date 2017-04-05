@@ -10,9 +10,9 @@
 #import "SLTabBarController.h"
 #import "SLTopWindow.h"
 
-@interface AppDelegate ()
-<UITabBarControllerDelegate>
-
+@interface AppDelegate ()<UITabBarControllerDelegate>
+/** 记录上一次选中的子控制器的索引 */
+@property (nonatomic, assign) NSUInteger lastSelectedIndex;
 @end
 
 @implementation AppDelegate
@@ -20,7 +20,13 @@
 #pragma mark - <UITabBarControllerDelegate>
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    SLLogFunc
+    if (tabBarController.selectedIndex == self.lastSelectedIndex) { // 重复点击了同一个TabBar按钮
+        // 发出通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:SLTabBarButtonDidRepeatClickNotification object:nil];
+    }
+    
+    // 记录目前选中的索引
+    self.lastSelectedIndex = tabBarController.selectedIndex;
 }
 #pragma mark - <UIApplicationDelegate>
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
