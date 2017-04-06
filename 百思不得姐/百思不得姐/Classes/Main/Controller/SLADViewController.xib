@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SLADViewController">
             <connections>
                 <outlet property="adContainView" destination="EVR-0R-Eal" id="acx-bl-bDS"/>
+                <outlet property="jumpBtn" destination="k6n-yv-JN9" id="Rva-Mh-CSw"/>
                 <outlet property="launchImageView" destination="DOg-v7-EAr" id="Jv9-R6-zLP"/>
                 <outlet property="view" destination="Ggc-QJ-Avh" id="hp5-RS-GYH"/>
             </connections>
@@ -24,15 +25,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6n-yv-JN9">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6n-yv-JN9">
                     <rect key="frame" x="290" y="20" width="65" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.77000000000000002" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="KxY-ve-Q7r"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="跳过 (3)">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="clickJump" destination="-1" eventType="touchUpInside" id="6ia-bS-KzV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.35967798290000003" blue="0.053445902240000003" alpha="1" colorSpace="calibratedRGB"/>

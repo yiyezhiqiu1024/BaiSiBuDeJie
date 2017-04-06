@@ -11,6 +11,8 @@
 #import "SLADItem.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
+#import "SLTabBarController.h"
+
 
 /*
  1.广告业务逻辑
@@ -20,11 +22,22 @@
 
 #define code2 @"phcqnauGuHYkFMRquANhmgN_IauBThfqmgKsUARhIWdGULPxnz3vndtkQW08nau_I1Y1P1Rhmhwz5Hb8nBuL5HDknWRhTA_qmvqVQhGGUhI_py4MQhF1TvChmgKY5H6hmyPW5RFRHzuET1dGULnhuAN85HchUy7s5HDhIywGujY3P1n3mWb1PvDLnvF-Pyf4mHR4nyRvmWPBmhwBPjcLPyfsPHT3uWm4FMPLpHYkFh7sTA-b5yRzPj6sPvRdFhPdTWYsFMKzuykEmyfqnauGuAu95Rnsnbfknbm1QHnkwW6VPjujnBdKfWD1QHnsnbRsnHwKfYwAwiu9mLfqHbD_H70hTv6qnHn1PauVmynqnjclnj0lnj0lnj0lnj0lnj0hThYqniuVujYkFhkC5HRvnB3dFh7spyfqnW0srj64nBu9TjYsFMub5HDhTZFEujdzTLK_mgPCFMP85Rnsnbfknbm1QHnkwW6VPjujnBdKfWD1QHnsnbRsnHwKfYwAwiuBnHfdnjD4rjnvPWYkFh7sTZu-TWY1QW68nBuWUHYdnHchIAYqPHDzFhqsmyPGIZbqniuYThuYTjd1uAVxnz3vnzu9IjYzFh6qP1RsFMws5y-fpAq8uHT_nBuYmycqnau1IjYkPjRsnHb3n1mvnHDkQWD4niuVmybqniu1uy3qwD-HQDFKHakHHNn_HR7fQ7uDQ7PcHzkHiR3_RYqNQD7jfzkPiRn_wdKHQDP5HikPfRb_fNc_NbwPQDdRHzkDiNchTvwW5HnvPj0zQWndnHRvnBsdPWb4ri3kPW0kPHmhmLnqPH6LP1ndm1-WPyDvnHKBrAw9nju9PHIhmH9WmH6zrjRhTv7_5iu85HDhTvd15HDhTLTqP1RsFh4ETjYYPW0sPzuVuyYqn1mYnjc8nWbvrjTdQjRvrHb4QWDvnjDdPBuk5yRzPj6sPvRdgvPsTBu_my4bTvP9TARqnam"
 
-@interface SLADViewController ()
+@interface SLADViewController () <UITabBarControllerDelegate>
+/**  启动图片视图 */
 @property (weak, nonatomic) IBOutlet UIImageView *launchImageView;
+/**  广告容器视图 */
 @property (weak, nonatomic) IBOutlet UIView *adContainView;
+/**  广告视图 */
 @property (nonatomic, weak) UIImageView *adView;
+/**  广告模型数据 */
 @property (nonatomic, strong) SLADItem *item;
+/**  定时器 */
+@property (nonatomic, weak) NSTimer *timer;
+/**  跳过按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *jumpBtn;
+
+/** 记录上一次选中的子控制器的索引 */
+@property (nonatomic, assign) NSUInteger lastSelectedIndex;
 @end
 
 @implementation SLADViewController
@@ -55,6 +68,9 @@
     
     // 加载广告数据 => 拿到活时间 => 服务器 => 查看接口文档 1.判断接口对不对 2.解析数据(w_picurl,ori_curl:跳转到广告界面,w,h) => 请求数据(AFN)
     [self loadAdData];
+    
+    // 创建定时器
+    _timer =  [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeChange) userInfo:nil repeats:YES];
     
 }
 
@@ -127,4 +143,50 @@
     }
 }
 
+/**
+ *  点击跳转做的事情
+ */
+- (IBAction)clickJump {
+    // 销毁广告界面,进入主框架界面
+    SLTabBarController *rootVc = [[SLTabBarController alloc] init];
+    rootVc.delegate = self;
+//    self.window.rootViewController = rootVc;
+    [UIApplication sharedApplication].keyWindow.rootViewController = rootVc;
+    
+    // 干掉定时器
+    [_timer invalidate];
+}
+
+/**
+ *  定时器改变
+ */
+- (void)timeChange
+{
+    // 倒计时
+    static int i = 3;
+    
+    if (i == 0) {
+        
+        [self clickJump];
+        
+    }
+    
+    i--;
+    
+    // 设置跳转按钮文字
+    [_jumpBtn setTitle:[NSString stringWithFormat:@"跳转 (%d)",i] forState:UIControlStateNormal];
+}
+
+
+#pragma mark - <UITabBarControllerDelegate>
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if (tabBarController.selectedIndex == self.lastSelectedIndex) { // 重复点击了同一个TabBar按钮
+        // 发出通知
+        [[NSNotificationCenter defaultCenter] postNotificationName:SLTabBarButtonDidRepeatClickNotification object:nil];
+    }
+    
+    // 记录目前选中的索引
+    self.lastSelectedIndex = tabBarController.selectedIndex;
+}
 @end
