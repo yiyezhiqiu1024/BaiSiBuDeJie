@@ -24,6 +24,14 @@
 #import "UIImageView+SLCircleImage.h"
 #import "UIImage+SLCircleImage.h"
 
+/***********屏幕适配*************/
+#define SLScreenW [UIScreen mainScreen].bounds.size.width
+#define SLScreenH [UIScreen mainScreen].bounds.size.height
+#define iphone6P (SLScreenH == 736)
+#define iphone6 (SLScreenH == 667)
+#define iphone5 (SLScreenH == 568)
+#define iphone4 (SLScreenH == 480)
+
 /*** 评论-头部控件-字体 ***/
 #define SLCommentSectionHeaderFont [UIFont systemFontOfSize:15]
 

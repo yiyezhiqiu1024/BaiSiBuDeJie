@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SLTabBarController.h"
 #import "SLTopWindow.h"
+#import "SLADViewController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 /** 记录上一次选中的子控制器的索引 */
@@ -35,9 +36,12 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     // 设置根控制器
-    SLTabBarController *rootVc = [[SLTabBarController alloc] init];
-    rootVc.delegate = self;
-    self.window.rootViewController = rootVc;
+//    SLTabBarController *rootVc = [[SLTabBarController alloc] init];
+//    rootVc.delegate = self;
+//    self.window.rootViewController = rootVc;
+    
+    SLADViewController *adVC = [[SLADViewController alloc] init];
+    self.window.rootViewController = adVC;
     
     // 显示窗口
     [self.window makeKeyAndVisible];
