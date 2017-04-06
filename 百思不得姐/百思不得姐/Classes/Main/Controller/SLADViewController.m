@@ -8,6 +8,9 @@
 
 #import "SLADViewController.h"
 #import <AFNetworking.h>
+#import "SLADItem.h"
+#import <MJExtension.h>
+#import <UIImageView+WebCache.h>
 
 /*
  1.广告业务逻辑
@@ -20,9 +23,29 @@
 @interface SLADViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *launchImageView;
 @property (weak, nonatomic) IBOutlet UIView *adContainView;
+@property (nonatomic, weak) UIImageView *adView;
+@property (nonatomic, strong) SLADItem *item;
 @end
 
 @implementation SLADViewController
+#pragma mark - 懒加载
+- (UIImageView *)adView
+{
+    if (_adView == nil) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        
+        [self.adContainView addSubview:imageView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+        [imageView addGestureRecognizer:tap];
+        
+        imageView.userInteractionEnabled = YES;
+        
+        _adView = imageView;
+    }
+    
+    return _adView;
+}
 
 #pragma mark - 系统回调
 - (void)viewDidLoad {
@@ -38,7 +61,6 @@
 #pragma mark - 设置UI
 - (void)loadAdData
 {
-    
     // unacceptable content-type: text/html"  响应头
     
     // 1.创建请求会话管理者
@@ -51,10 +73,19 @@
     // 3.发送请求
     [mgr GET:@"http://mobads.baidu.com/cpro/ui/mads.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        // 请求数据 -> 解析数据 -> 展示数据
+        SLWriteToPlist(responseObject, @"ad")
+        // 请求数据 -> 解析数据(写成plist文件) -> 设计模型 -> 字典转模型 -> 展示数据
+        // 获取字典
+        NSDictionary *adDict = [responseObject[@"ad"] lastObject];
         
-        NSLog(@"%@",responseObject);
+        // 字典转模型
+        _item = [SLADItem mj_objectWithKeyValues:adDict];
         
+        // 创建UIImageView展示图片 =>
+        CGFloat h = SLScreenW / _item.w * _item.h;
+        self.adView.frame = CGRectMake(0, 0, SLScreenW, h);
+        // 加载广告网页
+        [self.adView sd_setImageWithURL:[NSURL URLWithString:_item.w_picurl]];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -79,9 +110,21 @@
         
         self.launchImageView.image = [UIImage imageNamed:@"LaunchImage-700"];
     }
-    
-    
-    
+
+}
+
+#pragma mark - 监听
+/**
+ *  点击广告界面
+ */
+- (void)tap
+{
+    // 跳转到界面 => safari
+    NSURL *url = [NSURL URLWithString:_item.ori_curl];
+    UIApplication *app = [UIApplication sharedApplication];
+    if ([app canOpenURL:url]) {
+        [app openURL:url];
+    }
 }
 
 @end

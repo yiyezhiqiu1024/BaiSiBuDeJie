@@ -18,6 +18,7 @@
 		9223E3A51E95EA4B00899A02 /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9223E39E1E95EA4B00899A02 /* LaunchImage-800-Portrait-736h@3x.png */; };
 		9223E3A61E95EA4B00899A02 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9223E39F1E95EA4B00899A02 /* LaunchImage.png */; };
 		9223E3A71E95EA4B00899A02 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9223E3A01E95EA4B00899A02 /* LaunchImage@2x.png */; };
+		9223E3AA1E95F1BE00899A02 /* SLADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223E3A91E95F1BE00899A02 /* SLADItem.m */; };
 		9237B8E01E8F304300D34801 /* SLSeeBigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */; };
 		9237B8E11E8F304300D34801 /* SLSeeBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */; };
 		9237B8F11E8F481D00D34801 /* UIImage+SLCircleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237B8EE1E8F481D00D34801 /* UIImage+SLCircleImage.m */; };
@@ -122,6 +123,8 @@
 		9223E39E1E95EA4B00899A02 /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
 		9223E39F1E95EA4B00899A02 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 		9223E3A01E95EA4B00899A02 /* LaunchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchImage@2x.png"; sourceTree = "<group>"; };
+		9223E3A81E95F1BE00899A02 /* SLADItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLADItem.h; sourceTree = "<group>"; };
+		9223E3A91E95F1BE00899A02 /* SLADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLADItem.m; sourceTree = "<group>"; };
 		9237B8DD1E8F304300D34801 /* SLSeeBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSeeBigViewController.h; sourceTree = "<group>"; };
 		9237B8DE1E8F304300D34801 /* SLSeeBigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSeeBigViewController.m; sourceTree = "<group>"; };
 		9237B8DF1E8F304300D34801 /* SLSeeBigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSeeBigViewController.xib; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 		924128341E84E58300C5D419 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9223E3A81E95F1BE00899A02 /* SLADItem.h */,
+				9223E3A91E95F1BE00899A02 /* SLADItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -996,6 +1001,7 @@
 				92FD94301E84027D00AFA363 /* AppDelegate.m in Sources */,
 				928316121E8D508F003CB724 /* SLVoiceViewController.m in Sources */,
 				924128441E84E58300C5D419 /* SLTabBarController.m in Sources */,
+				9223E3AA1E95F1BE00899A02 /* SLADItem.m in Sources */,
 				92508D891E90E25F0077D49A /* SLCommentSectionHeader.m in Sources */,
 				929A35191E866179004CCA98 /* SLQuickLoginButton.m in Sources */,
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
