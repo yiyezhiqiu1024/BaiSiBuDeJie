@@ -16,9 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.interactivePopGestureRecognizer.delegate = self;
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+    
+    [self.view addGestureRecognizer:pan];
+    
+    // 控制手势什么时候触发,只有非根控制器才需要触发手势
+    pan.delegate = self;
+    // 禁止之前手势
+    self.interactivePopGestureRecognizer.enabled = NO;
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
 }
@@ -46,6 +52,19 @@
         
         // 隐藏底部的工具条
         viewController.hidesBottomBarWhenPushed = YES;
+        
+        /*
+        SLLog(@"%@", self.interactivePopGestureRecognizer.delegate);
+        <SLNavigationController: 0x7f8905819a00>：手势代理
+        */
+        
+        /*
+         SLLog(@"%@", self.interactivePopGestureRecognizer);
+         UIScreenEdgePanGestureRecognizer：导航滑动手势
+         target=<_UINavigationInteractiveTransition 0x7f9acc0afa70>)
+         action=handleNavigationTransition:
+         <UIScreenEdgePanGestureRecognizer: 0x7f9acc0affd0; state = Possible; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x7f9acc0aced0>; target= <(action=handleNavigationTransition:, target=<_UINavigationInteractiveTransition 0x7f9acc0afa70>)>>
+         */
     }
     
     // 所有设置搞定后, 再push控制器
