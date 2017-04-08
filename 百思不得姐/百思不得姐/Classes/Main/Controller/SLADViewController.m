@@ -80,19 +80,27 @@
     // unacceptable content-type: text/html"  响应头
     
     // 1.创建请求会话管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    //    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
     // 2.拼接参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"code2"] = code2;
     
+    @SLWeakObj(self)
+    
     // 3.发送请求
-    [mgr GET:@"http://mobads.baidu.com/cpro/ui/mads.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [SLNetworkTools.sharedNetworkTools requestmethodType:SLRequestTypeGET urlString:@"http://mobads.baidu.com/cpro/ui/mads.php" parameters:parameters finished:^(NSDictionary *result, NSError *error) {
         
-        SLWriteToPlist(responseObject, @"ad")
+        @SLStrongObj(self)
+        
+        if (error != nil) {
+            SLLog(@"%@",error);
+        }
+        
+        //        SLWriteToPlist(result, @"ad")
         // 请求数据 -> 解析数据(写成plist文件) -> 设计模型 -> 字典转模型 -> 展示数据
         // 获取字典
-        NSDictionary *adDict = [responseObject[@"ad"] lastObject];
+        NSDictionary *adDict = [result[@"ad"] lastObject];
         
         // 字典转模型
         _item = [SLADItem mj_objectWithKeyValues:adDict];
@@ -102,10 +110,9 @@
         self.adView.frame = CGRectMake(0, 0, SLScreenW, h);
         // 加载广告网页
         [self.adView sd_setImageWithURL:[NSURL URLWithString:_item.w_picurl]];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+        
+        
     }];
-    
 }
 
 // 设置启动图片
@@ -126,7 +133,7 @@
         
         self.launchImageView.image = [UIImage imageNamed:@"LaunchImage-700"];
     }
-
+    
 }
 
 #pragma mark - 监听
@@ -150,7 +157,7 @@
     // 销毁广告界面,进入主框架界面
     SLTabBarController *rootVc = [[SLTabBarController alloc] init];
     rootVc.delegate = self;
-//    self.window.rootViewController = rootVc;
+    //    self.window.rootViewController = rootVc;
     [UIApplication sharedApplication].keyWindow.rootViewController = rootVc;
     
     // 干掉定时器

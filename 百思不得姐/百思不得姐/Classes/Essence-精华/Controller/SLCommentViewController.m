@@ -22,9 +22,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomMargin;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-/** 任务管理者 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
-
 /** 最热评论数据 */
 @property (nonatomic, strong) NSArray<SLComment *> *hotestComments;
 
@@ -42,16 +39,6 @@
 
 static NSString * const SLCommentCellId = @"comment";
 static NSString * const SLSectionHeaderlId = @"header";
-
-#pragma mark - 懒加载
-- (AFHTTPSessionManager *)manager
-{
-    if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
-    }
-    return _manager;
-}
-
 
 #pragma mark - 系统回调
 - (void)viewDidLoad {
@@ -143,7 +130,7 @@ static NSString * const SLSectionHeaderlId = @"header";
 - (void)loadNewComments
 {
     // 取消所有请求
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    [SLNetworkTools.sharedNetworkTools.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -155,18 +142,26 @@ static NSString * const SLSectionHeaderlId = @"header";
     @SLWeakObj(self)
     
     // 发送请求
-    [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [SLNetworkTools.sharedNetworkTools requestmethodType:SLRequestTypeGET urlString:SLCommonURL parameters:params finished:^(NSDictionary *result, NSError *error) {
+        
         @SLStrongObj(self)
+        // 错误校验
+        if (error != nil) {
+            SLLog(@"请求失败 - %@", error);
+            // 让[刷新控件]结束刷新
+            [self.tableView.mj_header endRefreshing];
+        }
+        
         // 没有任何评论数据
-        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+        if (![result isKindOfClass:[NSDictionary class]]) {
             // 让[刷新控件]结束刷新
             [self.tableView.mj_header endRefreshing];
             return;
         }
         
         // 字典数组 -> 模型数组
-        self.lastComments = [SLComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        self.hotestComments = [SLComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        self.lastComments = [SLComment mj_objectArrayWithKeyValuesArray:result[@"data"]];
+        self.hotestComments = [SLComment mj_objectArrayWithKeyValuesArray:result[@"hot"]];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -175,23 +170,20 @@ static NSString * const SLSectionHeaderlId = @"header";
         [self.tableView.mj_header endRefreshing];
         
         
-        int total = [responseObject[@"total"] intValue];
+        int total = [result[@"total"] intValue];
         if (self.lastComments.count == total) { // 全部加载完毕
             // 隐藏
             self.tableView.mj_footer.hidden = YES;
         }
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        @SLStrongObj(self)
-        // 让[刷新控件]结束刷新
-        [self.tableView.mj_header endRefreshing];
+        
     }];
 }
 
 - (void)loadMoreComments
 {
     // 取消所有请求
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    [SLNetworkTools.sharedNetworkTools.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -200,42 +192,50 @@ static NSString * const SLSectionHeaderlId = @"header";
     params[@"data_id"] = self.topic.ID;
     params[@"lastcid"] = self.lastComments.lastObject.ID;
     
-    __weak typeof(self) weakSelf = self;
+    @SLWeakObj(self)
+    
     
     // 发送请求
-    [self.manager GET:SLCommonURL parameters:params progress: nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        if (![responseObject isKindOfClass:[NSDictionary class]]) {
-            [weakSelf.tableView.mj_footer endRefreshing];
+    [SLNetworkTools.sharedNetworkTools requestmethodType:SLRequestTypeGET urlString:SLCommonURL parameters:params finished:^(NSDictionary *result, NSError *error) {
+        
+        @SLStrongObj(self)
+        
+        // 错误校验
+        if (error != nil) {
+            SLLog(@"请求失败 - %@", error);
+            // 让[刷新控件]结束刷新
+            [self.tableView.mj_header endRefreshing];
+        }
+        
+        if (![result isKindOfClass:[NSDictionary class]]) {
+            [self.tableView.mj_footer endRefreshing];
             return;
         }
         
         // 字典数组 -> 模型数组
-        NSArray *moreComments = [SLComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [weakSelf.lastComments addObjectsFromArray:moreComments];
+        NSArray *moreComments = [SLComment mj_objectArrayWithKeyValuesArray:result[@"data"]];
+        [self.lastComments addObjectsFromArray:moreComments];
         
         // 刷新表格
-        [weakSelf.tableView reloadData];
+        [self.tableView reloadData];
         
-        int total = [responseObject[@"total"] intValue];
-        if (weakSelf.lastComments.count == total) { // 全部加载完毕
+        int total = [result[@"total"] intValue];
+        if (self.lastComments.count == total) { // 全部加载完毕
             // 提示用户:没有更多数据
             // [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
-            weakSelf.tableView.mj_footer.hidden = YES;
+            self.tableView.mj_footer.hidden = YES;
         } else { // 还没有加载完全
             // 结束刷新
-            [weakSelf.tableView.mj_footer endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 结束刷新
-        [weakSelf.tableView.mj_footer endRefreshing];
     }];
-
+    
 }
 
 #pragma mark - 监听
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
-     // 修改约束
+    // 修改约束
     CGFloat keyboardY =  [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
     CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
     self.bottomMargin.constant = screenH - keyboardY;

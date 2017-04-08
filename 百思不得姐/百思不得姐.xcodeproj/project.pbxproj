@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B60FF5BE6052B8DEA8C1AB0 /* libPods-百思不得姐UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EEBDAB45C163A0FCBA239F /* libPods-百思不得姐UITests.a */; };
 		4D7E9DB03BEC1D10031C5CF8 /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C57885D07A160A230047B670 /* libPods-百思不得姐.a */; };
+		921E8D5B1E98D5020046421E /* SLNetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 921E8D5A1E98D5020046421E /* SLNetworkTools.m */; };
 		9223E3971E95E95D00899A02 /* SLADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9223E3951E95E95D00899A02 /* SLADViewController.m */; };
 		9223E3981E95E95D00899A02 /* SLADViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9223E3961E95E95D00899A02 /* SLADViewController.xib */; };
 		9223E3A11E95EA4B00899A02 /* LaunchImage-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9223E39A1E95EA4B00899A02 /* LaunchImage-568h@2x.png */; };
@@ -113,6 +114,8 @@
 		470EBC3E64F671DE9C983556 /* Pods-百思不得姐Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B27298F31A9ABA260E1C495 /* Pods-百思不得姐UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		79745F7A405814BF24CC4A37 /* libPods-百思不得姐Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		921E8D591E98D5020046421E /* SLNetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLNetworkTools.h; sourceTree = "<group>"; };
+		921E8D5A1E98D5020046421E /* SLNetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNetworkTools.m; sourceTree = "<group>"; };
 		9223E3941E95E95D00899A02 /* SLADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLADViewController.h; sourceTree = "<group>"; };
 		9223E3951E95E95D00899A02 /* SLADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLADViewController.m; sourceTree = "<group>"; };
 		9223E3961E95E95D00899A02 /* SLADViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLADViewController.xib; sourceTree = "<group>"; };
@@ -512,6 +515,8 @@
 				924128401E84E58300C5D419 /* Category */,
 				928315CD1E8D0270003CB724 /* SLFileTool.h */,
 				928315CE1E8D0270003CB724 /* SLFileTool.m */,
+				921E8D591E98D5020046421E /* SLNetworkTools.h */,
+				921E8D5A1E98D5020046421E /* SLNetworkTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1005,6 +1010,7 @@
 				92508D891E90E25F0077D49A /* SLCommentSectionHeader.m in Sources */,
 				929A35191E866179004CCA98 /* SLQuickLoginButton.m in Sources */,
 				924128471E84E58300C5D419 /* UIView+SLExtension.m in Sources */,
+				921E8D5B1E98D5020046421E /* SLNetworkTools.m in Sources */,
 				929A35151E865E17004CCA98 /* SLLoginRegisterViewController.m in Sources */,
 				924128511E84F30400C5D419 /* SLFollowViewController.m in Sources */,
 				928315D51E8D4743003CB724 /* SLTitleButton.m in Sources */,

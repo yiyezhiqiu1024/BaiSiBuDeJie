@@ -24,8 +24,7 @@
 @property (nonatomic, weak) UILabel *label;
 /** maxtime : 用来加载下一页数据 */
 @property (nonatomic, copy) NSString *maxtime;
-/** 任务管理者 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation SLTopicViewController
@@ -37,15 +36,6 @@
 
 #pragma mark - 静态属性
 static NSString * const SLTopicCellId = @"topic";
-
-#pragma mark - 懒加载
-- (AFHTTPSessionManager *)manager
-{
-    if (!_manager) {
-        _manager = [AFHTTPSessionManager manager];
-    }
-    return _manager;
-}
 
 #pragma mark - 系统回调
 - (void)viewDidLoad {
@@ -127,7 +117,8 @@ static NSString * const SLTopicCellId = @"topic";
     //    for (NSURLSessionTask *task in self.manager.tasks) {
     //        [task cancel];
     //    }
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    //    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    [SLNetworkTools.sharedNetworkTools.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     // 关闭NSURLSession + 取消所有请求
     // [self.manager invalidateSessionCancelingTasks:YES];
@@ -141,33 +132,36 @@ static NSString * const SLTopicCellId = @"topic";
     @SLWeakObj(self)
     
     // 发送请求
-    [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [SLNetworkTools.sharedNetworkTools requestmethodType:SLRequestTypeGET urlString:SLCommonURL parameters:params finished:^(NSDictionary *result, NSError *error) {
         
         @SLStrongObj(self)
+        
+        // 1.错误校验
+        if (error != nil) {
+            
+            if (error.code == NSURLErrorCancelled) {
+                // 取消了任务
+            } else {
+                // 是其他错误
+            }
+            SLLog(@"请求失败 - %@", error);
+            
+            // 让[刷新控件]结束刷新
+            [self.tableView.mj_header endRefreshing];
+        }
+        
         // 存储maxtime(方便用来加载下一页数据)
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        self.maxtime = result[@"info"][@"maxtime"];
         
         // 字典数组 -> 模型数组
-        self.topics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        self.topics = [SLTopic mj_objectArrayWithKeyValuesArray:result[@"list"]];
         
         // 刷新表格
         [self.tableView reloadData];
         
         // 让[刷新控件]结束刷新
         [self.tableView.mj_header endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        @SLStrongObj(self)
-        
-        if (error.code == NSURLErrorCancelled) {
-            // 取消了任务
-        } else {
-            // 是其他错误
-        }
-        SLLog(@"请求失败 - %@", error);
-        
-        // 让[刷新控件]结束刷新
-        [self.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -176,7 +170,7 @@ static NSString * const SLTopicCellId = @"topic";
 - (void)loadMoreTopics
 {
     // 取消所有的请求
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    [SLNetworkTools.sharedNetworkTools.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -186,17 +180,24 @@ static NSString * const SLTopicCellId = @"topic";
     params[@"type"] = @(self.type);
     
     @SLWeakObj(self)
-
+    
     // 发送请求
-    [self.manager GET:SLCommonURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [SLNetworkTools.sharedNetworkTools requestmethodType:SLRequestTypeGET urlString:SLCommonURL parameters:params finished:^(NSDictionary *result, NSError *error) {
         
         @SLStrongObj(self)
         
+        if (error != nil) {
+            
+            SLLog(@"请求失败 - %@", error);
+            // 让[刷新控件]结束刷新
+            [self.tableView.mj_footer endRefreshing];
+        }
+        
         // 存储这页对应的maxtime
-        self.maxtime = responseObject[@"info"][@"maxtime"];
+        self.maxtime = result[@"info"][@"maxtime"];
         
         // 字典数组 -> 模型数组
-        NSArray<SLTopic *> *moreTopics = [SLTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        NSArray<SLTopic *> *moreTopics = [SLTopic mj_objectArrayWithKeyValuesArray:result[@"list"]];
         [self.topics addObjectsFromArray:moreTopics];
         
         // 刷新表格
@@ -204,13 +205,7 @@ static NSString * const SLTopicCellId = @"topic";
         
         // 让[刷新控件]结束刷新
         [self.tableView.mj_footer endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        @SLStrongObj(self)
-        
-        SLLog(@"请求失败 - %@", error);
-        // 让[刷新控件]结束刷新
-        [self.tableView.mj_footer endRefreshing];
     }];
 }
 

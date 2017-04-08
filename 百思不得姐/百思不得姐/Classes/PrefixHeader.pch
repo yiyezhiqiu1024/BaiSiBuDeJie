@@ -23,6 +23,7 @@
 #import "NSCalendar+SLCurrentCalendar.h"
 #import "UIImageView+SLCircleImage.h"
 #import "UIImage+SLCircleImage.h"
+#import "SLNetworkTools.h"
 
 /***********屏幕适配*************/
 #define SLScreenW [UIScreen mainScreen].bounds.size.width
