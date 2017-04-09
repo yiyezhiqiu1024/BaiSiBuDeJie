@@ -24,6 +24,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     // 从xib中加载进来的控件的autoresizingMask默认是UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight
     
     self.autoresizingMask = UIViewAutoresizingNone;

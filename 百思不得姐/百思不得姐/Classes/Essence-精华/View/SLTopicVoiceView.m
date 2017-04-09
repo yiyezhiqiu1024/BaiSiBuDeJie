@@ -20,6 +20,8 @@
 @implementation SLTopicVoiceView
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     self.autoresizingMask = UIViewAutoresizingNone;
     self.imageView.userInteractionEnabled = YES;
     [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(seeBig)]];

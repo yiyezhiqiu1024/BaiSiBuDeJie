@@ -82,6 +82,8 @@
 #pragma mark - 系统回调
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 

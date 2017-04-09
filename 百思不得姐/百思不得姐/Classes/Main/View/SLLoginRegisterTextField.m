@@ -19,6 +19,8 @@ static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
 #pragma mark - 系统回调
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     // 设置光标颜色
     self.tintColor = [UIColor whiteColor];
     // 设置默认的占位文字颜色
