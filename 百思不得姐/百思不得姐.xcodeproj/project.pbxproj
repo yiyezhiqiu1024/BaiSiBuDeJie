@@ -164,6 +164,7 @@
 		9241285A1E84F4D400C5D419 /* SLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLTabBar.m; sourceTree = "<group>"; };
 		924CA93F1E88FA17006DACBA /* UITextField+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+SLExtension.h"; sourceTree = "<group>"; };
 		924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SLExtension.m"; sourceTree = "<group>"; };
+		925017B21E9D0764007A556D /* SLSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSingleton.h; sourceTree = "<group>"; };
 		92508D821E90E2350077D49A /* SLCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCommentCell.h; sourceTree = "<group>"; };
 		92508D831E90E2350077D49A /* SLCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCommentCell.m; sourceTree = "<group>"; };
 		92508D841E90E2350077D49A /* SLCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLCommentCell.xib; sourceTree = "<group>"; };
@@ -517,6 +518,7 @@
 				928315CE1E8D0270003CB724 /* SLFileTool.m */,
 				921E8D591E98D5020046421E /* SLNetworkTools.h */,
 				921E8D5A1E98D5020046421E /* SLNetworkTools.m */,
+				925017B21E9D0764007A556D /* SLSingleton.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
