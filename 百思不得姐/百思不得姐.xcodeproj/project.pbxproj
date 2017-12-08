@@ -90,6 +90,7 @@
 		92FD94381E84027D00AFA363 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD94371E84027D00AFA363 /* Assets.xcassets */; };
 		92FD94461E84027D00AFA363 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD94451E84027D00AFA363 /* _____Tests.m */; };
 		92FD94511E84027D00AFA363 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD94501E84027D00AFA363 /* _____UITests.m */; };
+		AECB74251FDA23D30088E63B /* UITextField+SLPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = AECB74241FDA23D30088E63B /* UITextField+SLPlaceholder.m */; };
 		C17BDF1E47B1ABFAF0577452 /* libPods-百思不得姐Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79745F7A405814BF24CC4A37 /* libPods-百思不得姐Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +264,8 @@
 		92FD94521E84027D00AFA363 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29852BFC1A35532DD7704A1 /* Pods-百思不得姐UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests.release.xcconfig"; sourceTree = "<group>"; };
 		A95F6E5E31BBFA5768EF81D8 /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
+		AECB74231FDA23D30088E63B /* UITextField+SLPlaceholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+SLPlaceholder.h"; sourceTree = "<group>"; };
+		AECB74241FDA23D30088E63B /* UITextField+SLPlaceholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SLPlaceholder.m"; sourceTree = "<group>"; };
 		B6EEBDAB45C163A0FCBA239F /* libPods-百思不得姐UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57885D07A160A230047B670 /* libPods-百思不得姐.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEA9A6F14972C864A8F9C33 /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				9237B8F01E8F481D00D34801 /* UIImageView+SLCircleImage.m */,
 				924CA93F1E88FA17006DACBA /* UITextField+SLExtension.h */,
 				924CA9401E88FA17006DACBA /* UITextField+SLExtension.m */,
+				AECB74231FDA23D30088E63B /* UITextField+SLPlaceholder.h */,
+				AECB74241FDA23D30088E63B /* UITextField+SLPlaceholder.m */,
 				924128411E84E58300C5D419 /* UIView+SLExtension.h */,
 				924128421E84E58300C5D419 /* UIView+SLExtension.m */,
 				92AEA8511E850247001E6159 /* UIBarButtonItem+SLExtension.h */,
@@ -768,6 +773,7 @@
 				92FD94491E84027D00AFA363 /* Frameworks */,
 				92FD944A1E84027D00AFA363 /* Resources */,
 				3F46A545C4EE1607263C8A58 /* [CP] Copy Pods Resources */,
+				F2C786650FF20525A17FD466 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -791,6 +797,7 @@
 				TargetAttributes = {
 					92FD94271E84027D00AFA363 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CF3ZTC43YH;
 					};
 					92FD94401E84027D00AFA363 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -873,9 +880,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -903,13 +914,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-百思不得姐Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA6F8DCB9637DC930E84DCCA /* [CP] Embed Pods Frameworks */ = {
@@ -933,13 +947,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-百思不得姐-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DB59D9C4E953259472611888 /* [CP] Embed Pods Frameworks */ = {
@@ -963,13 +980,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-百思不得姐UITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED85114EB07544999F6C3BDA /* [CP] Copy Pods Resources */ = {
@@ -987,6 +1007,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐Tests/Pods-百思不得姐Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2C786650FF20525A17FD466 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐UITests/Pods-百思不得姐UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -996,6 +1031,7 @@
 			files = (
 				92AEA85C1E8503F7001E6159 /* SLSettingViewController.m in Sources */,
 				92F6474B1E8E5F590021F3BD /* SLUser.m in Sources */,
+				AECB74251FDA23D30088E63B /* UITextField+SLPlaceholder.m in Sources */,
 				92AF3A5C1E8BFC0500D6368A /* SLWebViewController.m in Sources */,
 				928316131E8D508F003CB724 /* SLWordViewController.m in Sources */,
 				928315CF1E8D0270003CB724 /* SLFileTool.m in Sources */,
@@ -1182,6 +1218,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = CF3ZTC43YH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
@@ -1197,6 +1234,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				DEVELOPMENT_TEAM = CF3ZTC43YH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";

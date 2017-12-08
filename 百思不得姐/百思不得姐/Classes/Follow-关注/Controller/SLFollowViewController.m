@@ -56,12 +56,9 @@
 }
 
 - (IBAction)loginRegister {
-    self.textField.sl_placeholderColor = nil;
     
-    NSLog(@"%@", self.textField.sl_placeholderColor);
-    
-//    SLLoginRegisterViewController *loginRegister = [[SLLoginRegisterViewController alloc] init];
-//    [self presentViewController:loginRegister animated:YES completion:nil];
+    SLLoginRegisterViewController *loginRegister = [[SLLoginRegisterViewController alloc] init];
+    [self presentViewController:loginRegister animated:YES completion:nil];
 }
 
 

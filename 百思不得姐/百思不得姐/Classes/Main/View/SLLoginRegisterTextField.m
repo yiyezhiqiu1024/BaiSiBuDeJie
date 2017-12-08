@@ -7,8 +7,9 @@
 //
 
 #import "SLLoginRegisterTextField.h"
+#import "UITextField+SLPlaceholder.h"
 
-static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
+//static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
 
 @interface SLLoginRegisterTextField()
 
@@ -24,7 +25,8 @@ static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
     // 设置光标颜色
     self.tintColor = [UIColor whiteColor];
     // 设置默认的占位文字颜色
-    [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
+//    [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
+    self.sl_placeholderColor = [UIColor grayColor];
     
     // 成为第一响应者 : 开始编辑\弹出键盘\获得焦点
     //    [self becomeFirstResponder];
@@ -38,7 +40,8 @@ static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
  */
 - (BOOL)becomeFirstResponder
 {
-    [self setValue:[UIColor whiteColor] forKeyPath:SLPlaceholderColorKey];
+//    [self setValue:[UIColor whiteColor] forKeyPath:SLPlaceholderColorKey];
+    self.sl_placeholderColor = [UIColor whiteColor];
     return [super becomeFirstResponder];
 }
 
@@ -47,7 +50,8 @@ static NSString * const SLPlaceholderColorKey = @"placeholderLabel.textColor";
  */
 - (BOOL)resignFirstResponder
 {
-    [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
+//    [self setValue:[UIColor grayColor] forKeyPath:SLPlaceholderColorKey];
+    self.sl_placeholderColor = [UIColor grayColor];
     return [super resignFirstResponder];
 }
 
