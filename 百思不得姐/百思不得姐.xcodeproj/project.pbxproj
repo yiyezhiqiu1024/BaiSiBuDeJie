@@ -1222,8 +1222,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "CoderSLZeng.com.github.-----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amass.bsbdj2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1238,8 +1239,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "CoderSLZeng.com.github.-----";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amass.bsbdj2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

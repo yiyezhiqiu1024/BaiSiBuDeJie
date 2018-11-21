@@ -59,7 +59,7 @@
     
     // 创建所有的方块
     for (NSUInteger i = 0; i < count; i++) {
-        
+        if (![squares[i] isMemberOfClass:[SLMeSquare class]]) continue;
         // 创建按钮
         SLMeSquareButton *button = [SLMeSquareButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -77,7 +77,7 @@
     
     // 设置footer的高度 == 最后一个按钮的bottom(最大Y值)
     self.sl_height = self.subviews.lastObject.sl_bottom;
-    
+
     // 设置tableView的contentSize
     UITableView *tableView = (UITableView *)self.superview;
     tableView.tableFooterView = self;
@@ -86,25 +86,25 @@
     // 总数 : 1660
     // 每一行最多显示的数量 : 30
     // 总行数 : (1660 + 30 - 1) / 30
-    //    NSUInteger rowsCount = 0;
-    //    if (count % maxColsCount == 0) { // 能整除
-    //        rowsCount = count / maxColsCount;
-    //    } else { // 不能整除
-    //        rowsCount = count / maxColsCount + 1;
-    //    }
-    
-    //    NSUInteger rowsCount = count / maxColsCount;
-    //    if (count % maxColsCount) { // 不能整除
-    //        rowsCount += 1;
-    //    }
+//        NSUInteger rowsCount = 0;
+//        if (count % maxColsCount == 0) { // 能整除
+//            rowsCount = count / maxColsCount;
+//        } else { // 不能整除
+//            rowsCount = count / maxColsCount + 1;
+//        }
+//
+//        NSUInteger rowsCount = count / maxColsCount;
+//        if (count % maxColsCount) { // 不能整除
+//            rowsCount += 1;
+//        }
     
     // 总数 : 2476
     // 每页显示的最大数量 : 35
     // 总页数 :  (2476 + 35 - 1) / 35
     // pagesCount = (总数  +  每页显示的最大数量 - 1) / 每页显示的最大数量
     
-    //    NSUInteger rowsCount = (count + maxColsCount - 1) / maxColsCount;
-    //    self.sl_height = rowsCount * buttonH;
+//    NSUInteger rowsCount = (count + maxColsCount - 1) / maxColsCount;
+//    self.sl_height = rowsCount * buttonH;
 }
 
 #pragma mark - 监听

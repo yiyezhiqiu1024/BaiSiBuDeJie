@@ -95,6 +95,7 @@
         
         if (error != nil) {
             SLLog(@"%@",error);
+            return;
         }
         
         //        SLWriteToPlist(result, @"ad")
